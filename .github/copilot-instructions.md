@@ -39,3 +39,12 @@ This repository is a legacy football scraping + ETL pipeline under incremental m
 - Explain scope before making edits.
 - Keep diffs minimal and focused.
 - Explicitly list what is _not_ changed.
+
+## Agents
+
+Two role-based agents are defined under [.github/agents/](agents/):
+
+- `@designer` — plans modernization steps, drafts ADRs, proposes fixture layouts. Read-only.
+- `@implementer` — executes approved changes with characterization-first discipline. Edits and runs validation.
+
+Invoke from Copilot Chat with `@designer` or `@implementer`. Both inherit the safety rules above.
