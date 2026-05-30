@@ -1,10 +1,10 @@
 # football-metrics-pipeline
 
-> Football scraping + ETL pipeline that turns FBref player tables into Z-score-based metrics, ready for analysis in Google Sheets or any BI tool.
+> Football data engineering pipeline that turns FBref player tables into normalized Z-score metrics for scouting, BI and cross-league analysis.
 
 [![CI](https://github.com/RicJMC/football-metrics-pipeline/actions/workflows/verify.yml/badge.svg)](https://github.com/RicJMC/football-metrics-pipeline/actions/workflows/verify.yml)
 
-**Stack:** Node.js 22 · Puppeteer · plain ES2020 · `node --test`
+**Stack:** Node.js 22 · Puppeteer · plain ES2020 · `node --test` · GitHub Actions
 
 ## What this project does
 
@@ -91,9 +91,11 @@ If you want to run the full pipeline against real data, point the scrapers at FB
 
 - ✅ Quarantine of generated outputs and secrets.
 - ✅ Characterization tests for stages 2-5 (happy path + 3 edge cases).
+- ✅ Stage 1 sample fixture (`sample-data/etl-stage1/`, mocked data tree).
 - ✅ Cross-platform `verify.js` + GitHub Actions CI.
 - ✅ Sample-data demo (`pipeline:sample`).
-- ⏳ Stage 1 sample fixture (requires data-tree mock).
+- ✅ Architecture decisions captured as ADRs (5 records).
+- ✅ Copilot agents (`designer`/`implementer`) for safe incremental modernization.
 - ⏳ Offline scraper test against a fixture FBref page.
 - ⏳ Lint/format and modular refactor.
 - ⏳ Optional TypeScript migration.
