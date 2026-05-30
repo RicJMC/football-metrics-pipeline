@@ -41,6 +41,8 @@ scripts/old/**/*.csv
 # Puppeteer temp/session artifacts
 scrappe/tmp/
 tmp/
+tmp/chat-export*
+tmp/*copilot-export*
 .cache/
 .puppeteer/
 puppeteer-profile/

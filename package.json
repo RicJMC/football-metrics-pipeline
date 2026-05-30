@@ -18,7 +18,8 @@
     "format:check": "prettier --check .",
     "test": "npm run test:characterization",
     "test:characterization": "node --test test/characterization/*.test.js",
-    "verify": "node scripts/verify.js"
+    "verify": "node scripts/verify.js",
+    "memory:handoff": "powershell -ExecutionPolicy Bypass -File tools/new-handoff.ps1"
   },
   "engines": {
     "node": ">=22 <23"
