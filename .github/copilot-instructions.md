@@ -48,3 +48,17 @@ Two role-based agents are defined under [.github/agents/](agents/):
 - `@implementer` — executes approved changes with characterization-first discipline. Edits and runs validation.
 
 Invoke from Copilot Chat with `@designer` or `@implementer`. Both inherit the safety rules above.
+
+## AI Memory and Handoff Policy
+
+- Follow [docs/adr/0009-ai-memory-policy.md](../docs/adr/0009-ai-memory-policy.md) for memory curation.
+- Before making changes, read `docs/ai-context.md` when present.
+- Check `docs/recurring-errors.md`, `docs/incidents/`, and the latest `.github/internal/handoffs/` note for similar issues.
+- Do not use VS Code `workspaceStorage` as a source of truth.
+- Never store secrets, tokens, `.env` values, credentials, private URLs, or personal data in memory files.
+
+At the end of every task:
+
+- Propose one of: incident, handoff, ADR, lesson learned, or "no memory needed".
+- Summarize the proposed memory first.
+- Only write/update memory files after explicit user approval.
