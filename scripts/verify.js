@@ -60,7 +60,13 @@ function checkPaths() {
     'sample-data/etl-phase2/expected/playerStatstoCSV1-3.expected.csv',
     '.github/workflows/verify.yml',
     'test/characterization/phase2PipelineHarness.js',
-    'test/characterization/phase2Pipeline.test.js'
+    'test/characterization/phase2Pipeline.test.js',
+    'test/characterization/stage1PipelineHarness.js',
+    'test/characterization/stage1Pipeline.test.js',
+    'test/characterization/edgeCases.test.js',
+    'sample-data/etl-stage1/data/24-Serie-A/2024/standard/2024-Serie-A-standard.json',
+    'sample-data/etl-stage1/expected/playerStats01_Unicos.expected.json',
+    'docs/adr/README.md'
   ];
 
   for (const relativePath of requiredPaths) {
@@ -89,7 +95,9 @@ function checkJsonFixtures() {
     'sample-data/etl-phase2/expected/playerStats02_Numerical.expected.json',
     'sample-data/etl-phase2/expected/playerStats03_ZScores_104_Metrics.expected.json',
     'sample-data/etl-phase2/expected/playerStats03_ZScores_204_Metrics.expected.json',
-    'sample-data/etl-phase2/expected/playerStats03_ZScores_304_Metrics.expected.json'
+    'sample-data/etl-phase2/expected/playerStats03_ZScores_304_Metrics.expected.json',
+    'sample-data/etl-stage1/data/24-Serie-A/2024/standard/2024-Serie-A-standard.json',
+    'sample-data/etl-stage1/expected/playerStats01_Unicos.expected.json'
   ];
 
   for (const relativePath of jsonFiles) {

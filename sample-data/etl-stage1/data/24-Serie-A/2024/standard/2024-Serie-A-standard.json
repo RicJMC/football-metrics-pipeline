@@ -1,0 +1,50 @@
+[
+  {
+    "Rk": "0",
+    "PlayerCode": null,
+    "player": "Marco Synth",
+    "nationality": "it ITA",
+    "position": "MF",
+    "team": "Roma FC",
+    "age": "26-100",
+    "birth_year": "1998",
+    "minutes_90s": "12.5",
+    "games": "15",
+    "games_starts": "12",
+    "goals": "0.1",
+    "assists": "0.05",
+    "matches": "Matches"
+  },
+  {
+    "Rk": "1",
+    "PlayerCode": null,
+    "player": "Luca Demo",
+    "nationality": "it ITA",
+    "position": "FW",
+    "team": "Roma FC",
+    "age": "23-200",
+    "birth_year": "2001",
+    "minutes_90s": "9.2",
+    "games": "15",
+    "games_starts": "12",
+    "goals": "0.15000000000000002",
+    "assists": "0.09",
+    "matches": "Matches"
+  },
+  {
+    "Rk": "2",
+    "PlayerCode": null,
+    "player": "Giulio Mock",
+    "nationality": "it ITA",
+    "position": "DF",
+    "team": "Milan SC",
+    "age": "29-050",
+    "birth_year": "1995",
+    "minutes_90s": "14.8",
+    "games": "15",
+    "games_starts": "12",
+    "goals": "0.2",
+    "assists": "0.13",
+    "matches": "Matches"
+  }
+]

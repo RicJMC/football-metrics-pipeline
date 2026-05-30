@@ -1,0 +1,278 @@
+{
+  "Marco Synth": {
+    "Player": "Marco Synth",
+    "Seasons": {
+      "2024": {
+        "Teams": {
+          "Roma FC": {
+            "League": "Serie-A",
+            "BirthYear": "1998",
+            "Nationality": "it ITA",
+            "Age": 26,
+            "Team": "Roma FC",
+            "Rk": "0",
+            "PlayerCode": null,
+            "position": "MF",
+            "minutes_90s": "12.5",
+            "games": "15",
+            "games_starts": "12",
+            "goals": "0.1",
+            "assists": "0.05",
+            "matches": "Matches",
+            "shots": "1.2",
+            "shots_on_target": "0.5",
+            "shots_on_target_pct": "40",
+            "shots_per90": "1.2",
+            "shots_on_target_per90": "0.5",
+            "goals_per_shot": "0.1",
+            "goals_per_shot_on_target": "0.2",
+            "npxg": "0.3",
+            "npxg_per_shot": "0.15",
+            "passes_completed": "20",
+            "passes_pct": "70",
+            "passes_into_final_third": "2.5",
+            "passes_into_penalty_area": "1",
+            "progressive_passes": "3",
+            "passes_progressive_distance": "80",
+            "pass_xa": "0.08",
+            "assisted_shots": "1.5",
+            "fouled": "1",
+            "aerials_won": "0.8",
+            "aerials_won_pct": "45",
+            "ball_recoveries": "4.5"
+          }
+        }
+      }
+    }
+  },
+  "Luca Demo": {
+    "Player": "Luca Demo",
+    "Seasons": {
+      "2024": {
+        "Teams": {
+          "Roma FC": {
+            "League": "Serie-A",
+            "BirthYear": "2001",
+            "Nationality": "it ITA",
+            "Age": 23,
+            "Team": "Roma FC",
+            "Rk": "1",
+            "PlayerCode": null,
+            "position": "FW",
+            "minutes_90s": "9.2",
+            "games": "15",
+            "games_starts": "12",
+            "goals": "0.15000000000000002",
+            "assists": "0.09",
+            "matches": "Matches",
+            "shots": "1.5",
+            "shots_on_target": "0.7",
+            "shots_on_target_pct": "45",
+            "shots_per90": "1.5",
+            "shots_on_target_per90": "0.7",
+            "goals_per_shot": "0.12000000000000001",
+            "goals_per_shot_on_target": "0.23",
+            "npxg": "0.35",
+            "npxg_per_shot": "0.16",
+            "passes_completed": "25",
+            "passes_pct": "73",
+            "passes_into_final_third": "3",
+            "passes_into_penalty_area": "1.2",
+            "progressive_passes": "3.4",
+            "passes_progressive_distance": "90",
+            "pass_xa": "0.1",
+            "assisted_shots": "1.8",
+            "fouled": "1.2",
+            "aerials_won": "1.1",
+            "aerials_won_pct": "50",
+            "ball_recoveries": "5"
+          }
+        }
+      }
+    }
+  },
+  "Giulio Mock": {
+    "Player": "Giulio Mock",
+    "Seasons": {
+      "2024": {
+        "Teams": {
+          "Milan SC": {
+            "League": "Serie-A",
+            "BirthYear": "1995",
+            "Nationality": "it ITA",
+            "Age": 29,
+            "Team": "Milan SC",
+            "Rk": "2",
+            "PlayerCode": null,
+            "position": "DF",
+            "minutes_90s": "14.8",
+            "games": "15",
+            "games_starts": "12",
+            "goals": "0.2",
+            "assists": "0.13",
+            "matches": "Matches",
+            "shots": "1.7999999999999998",
+            "shots_on_target": "0.9",
+            "shots_on_target_pct": "50",
+            "shots_per90": "1.7999999999999998",
+            "shots_on_target_per90": "0.9",
+            "goals_per_shot": "0.14",
+            "goals_per_shot_on_target": "0.26",
+            "npxg": "0.4",
+            "npxg_per_shot": "0.16999999999999998",
+            "passes_completed": "30",
+            "passes_pct": "76",
+            "passes_into_final_third": "3.5",
+            "passes_into_penalty_area": "1.4",
+            "progressive_passes": "3.8",
+            "passes_progressive_distance": "100",
+            "pass_xa": "0.12",
+            "assisted_shots": "2.1",
+            "fouled": "1.4",
+            "aerials_won": "1.4",
+            "aerials_won_pct": "55",
+            "ball_recoveries": "5.5"
+          }
+        }
+      }
+    }
+  },
+  "Joao Sample": {
+    "Player": "Joao Sample",
+    "Seasons": {
+      "2023-2024": {
+        "Teams": {
+          "Lisboa FC": {
+            "League": "Primeira-Liga",
+            "BirthYear": "1999",
+            "Nationality": "pt POR",
+            "Age": 24,
+            "Team": "Lisboa FC",
+            "Rk": "0",
+            "PlayerCode": null,
+            "position": "MF",
+            "minutes_90s": "11.0",
+            "games": "15",
+            "games_starts": "12",
+            "goals": "0.1",
+            "assists": "0.05",
+            "matches": "Matches",
+            "shots": "1.2",
+            "shots_on_target": "0.5",
+            "shots_on_target_pct": "40",
+            "shots_per90": "1.2",
+            "shots_on_target_per90": "0.5",
+            "goals_per_shot": "0.1",
+            "goals_per_shot_on_target": "0.2",
+            "npxg": "0.3",
+            "npxg_per_shot": "0.15",
+            "passes_completed": "20",
+            "passes_pct": "70",
+            "passes_into_final_third": "2.5",
+            "passes_into_penalty_area": "1",
+            "progressive_passes": "3",
+            "passes_progressive_distance": "80",
+            "pass_xa": "0.08",
+            "assisted_shots": "1.5",
+            "fouled": "1",
+            "aerials_won": "0.8",
+            "aerials_won_pct": "45",
+            "ball_recoveries": "4.5"
+          }
+        }
+      }
+    }
+  },
+  "Tomas Fixture": {
+    "Player": "Tomas Fixture",
+    "Seasons": {
+      "2023-2024": {
+        "Teams": {
+          "Porto United": {
+            "League": "Primeira-Liga",
+            "BirthYear": "2000",
+            "Nationality": "pt POR",
+            "Age": 23,
+            "Team": "Porto United",
+            "Rk": "1",
+            "PlayerCode": null,
+            "position": "FW",
+            "minutes_90s": "8.5",
+            "games": "15",
+            "games_starts": "12",
+            "goals": "0.15000000000000002",
+            "assists": "0.09",
+            "matches": "Matches",
+            "shots": "1.5",
+            "shots_on_target": "0.7",
+            "shots_on_target_pct": "45",
+            "shots_per90": "1.5",
+            "shots_on_target_per90": "0.7",
+            "goals_per_shot": "0.12000000000000001",
+            "goals_per_shot_on_target": "0.23",
+            "npxg": "0.35",
+            "npxg_per_shot": "0.16",
+            "passes_completed": "25",
+            "passes_pct": "73",
+            "passes_into_final_third": "3",
+            "passes_into_penalty_area": "1.2",
+            "progressive_passes": "3.4",
+            "passes_progressive_distance": "90",
+            "pass_xa": "0.1",
+            "assisted_shots": "1.8",
+            "fouled": "1.2",
+            "aerials_won": "1.1",
+            "aerials_won_pct": "50",
+            "ball_recoveries": "5"
+          }
+        }
+      }
+    }
+  },
+  "Rui Replica": {
+    "Player": "Rui Replica",
+    "Seasons": {
+      "2023-2024": {
+        "Teams": {
+          "Lisboa FC": {
+            "League": "Primeira-Liga",
+            "BirthYear": "1997",
+            "Nationality": "pt POR",
+            "Age": 26,
+            "Team": "Lisboa FC",
+            "Rk": "2",
+            "PlayerCode": null,
+            "position": "DF",
+            "minutes_90s": "13.4",
+            "games": "15",
+            "games_starts": "12",
+            "goals": "0.2",
+            "assists": "0.13",
+            "matches": "Matches",
+            "shots": "1.7999999999999998",
+            "shots_on_target": "0.9",
+            "shots_on_target_pct": "50",
+            "shots_per90": "1.7999999999999998",
+            "shots_on_target_per90": "0.9",
+            "goals_per_shot": "0.14",
+            "goals_per_shot_on_target": "0.26",
+            "npxg": "0.4",
+            "npxg_per_shot": "0.16999999999999998",
+            "passes_completed": "30",
+            "passes_pct": "76",
+            "passes_into_final_third": "3.5",
+            "passes_into_penalty_area": "1.4",
+            "progressive_passes": "3.8",
+            "passes_progressive_distance": "100",
+            "pass_xa": "0.12",
+            "assisted_shots": "2.1",
+            "fouled": "1.4",
+            "aerials_won": "1.4",
+            "aerials_won_pct": "55",
+            "ball_recoveries": "5.5"
+          }
+        }
+      }
+    }
+  }
+}

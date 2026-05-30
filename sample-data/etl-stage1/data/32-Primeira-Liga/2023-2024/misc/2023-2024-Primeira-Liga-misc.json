@@ -1,0 +1,50 @@
+[
+  {
+    "Rk": "0",
+    "PlayerCode": null,
+    "player": "Joao Sample",
+    "nationality": "pt POR",
+    "position": "MF",
+    "team": "Lisboa FC",
+    "age": "24-300",
+    "birth_year": "1999",
+    "minutes_90s": "11.0",
+    "fouled": "1",
+    "aerials_won": "0.8",
+    "aerials_won_pct": "45",
+    "ball_recoveries": "4.5",
+    "matches": "Matches"
+  },
+  {
+    "Rk": "1",
+    "PlayerCode": null,
+    "player": "Tomas Fixture",
+    "nationality": "pt POR",
+    "position": "FW",
+    "team": "Porto United",
+    "age": "23-150",
+    "birth_year": "2000",
+    "minutes_90s": "8.5",
+    "fouled": "1.2",
+    "aerials_won": "1.1",
+    "aerials_won_pct": "50",
+    "ball_recoveries": "5",
+    "matches": "Matches"
+  },
+  {
+    "Rk": "2",
+    "PlayerCode": null,
+    "player": "Rui Replica",
+    "nationality": "pt POR",
+    "position": "DF",
+    "team": "Lisboa FC",
+    "age": "26-220",
+    "birth_year": "1997",
+    "minutes_90s": "13.4",
+    "fouled": "1.4",
+    "aerials_won": "1.4",
+    "aerials_won_pct": "55",
+    "ball_recoveries": "5.5",
+    "matches": "Matches"
+  }
+]

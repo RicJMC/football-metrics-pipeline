@@ -10,6 +10,7 @@
     "etl:from-scripts-dir": "cd scripts && node index.js",
     "pipeline": "npm run etl",
     "pipeline:sample": "node scripts/pipeline-sample.js",
+    "pipeline:sample:stage1": "node scripts/pipeline-sample.js --stage1",
     "inventory": "node -v && npm -v",
     "test": "npm run test:characterization",
     "test:characterization": "node --test test/characterization/*.test.js",

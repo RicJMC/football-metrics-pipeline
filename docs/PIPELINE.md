@@ -54,8 +54,9 @@ Characterization baseline:
 
 - Canonical automated validation uses `scripts/index.js` path semantics.
 - The tracked sample fixture lives under `sample-data/etl-phase2/` and starts from the `playerStats01_Unicos.json` contract.
+- A mocked `data/` tree under `sample-data/etl-stage1/` (4 categories, 2 leagues, 6 synthetic players) exercises stage 01 parsing without scraping.
 - Three additional fixtures under `sample-data/edge-cases/` cover missing fields, multi-team transfers and the stage-2 `< 3 games` filter.
-- Automated checks execute the sample path from stages 2–5 without running live scraping.
+- Automated checks execute stage 01 against the mocked tree and stages 02–05 against the phase-2 fixture without running live scraping.
 
 ## 3) Sample-data demo
 
@@ -69,6 +70,12 @@ Point at any fixture (e.g. an edge case) with `--fixture`:
 
 ```bash
 npm run pipeline:sample -- --fixture sample-data/edge-cases/multi-team/input/playerStats01_Unicos.sample.json
+```
+
+Run stage 01 only against the mocked `data/` tree:
+
+```bash
+npm run pipeline:sample:stage1
 ```
 
 ## 4) End-to-End against real data

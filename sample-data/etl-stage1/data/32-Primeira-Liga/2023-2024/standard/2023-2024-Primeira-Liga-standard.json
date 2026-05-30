@@ -1,0 +1,50 @@
+[
+  {
+    "Rk": "0",
+    "PlayerCode": null,
+    "player": "Joao Sample",
+    "nationality": "pt POR",
+    "position": "MF",
+    "team": "Lisboa FC",
+    "age": "24-300",
+    "birth_year": "1999",
+    "minutes_90s": "11.0",
+    "games": "15",
+    "games_starts": "12",
+    "goals": "0.1",
+    "assists": "0.05",
+    "matches": "Matches"
+  },
+  {
+    "Rk": "1",
+    "PlayerCode": null,
+    "player": "Tomas Fixture",
+    "nationality": "pt POR",
+    "position": "FW",
+    "team": "Porto United",
+    "age": "23-150",
+    "birth_year": "2000",
+    "minutes_90s": "8.5",
+    "games": "15",
+    "games_starts": "12",
+    "goals": "0.15000000000000002",
+    "assists": "0.09",
+    "matches": "Matches"
+  },
+  {
+    "Rk": "2",
+    "PlayerCode": null,
+    "player": "Rui Replica",
+    "nationality": "pt POR",
+    "position": "DF",
+    "team": "Lisboa FC",
+    "age": "26-220",
+    "birth_year": "1997",
+    "minutes_90s": "13.4",
+    "games": "15",
+    "games_starts": "12",
+    "goals": "0.2",
+    "assists": "0.13",
+    "matches": "Matches"
+  }
+]
