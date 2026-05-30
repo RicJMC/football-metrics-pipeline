@@ -1,19 +1,21 @@
-const fs = require('fs');
 const fsp = require('fs/promises');
-const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
 const repoRoot = path.resolve(__dirname, '..', '..');
 const defaultSampleRoot = path.join(repoRoot, 'sample-data', 'etl-phase2');
-const defaultFixtureFile = path.join(defaultSampleRoot, 'input', 'playerStats01_Unicos.sample.json');
+const defaultFixtureFile = path.join(
+  defaultSampleRoot,
+  'input',
+  'playerStats01_Unicos.sample.json',
+);
 const defaultExpectedRoot = path.join(defaultSampleRoot, 'expected');
 
 const stageScripts = [
   'playerStats02_Numerical3games.js',
   'playerStats03_ZScores.js',
   'playerStats04_Metrics.js',
-  'playerStats05_CSV.js'
+  'playerStats05_CSV.js',
 ];
 
 async function ensureDir(dirPath) {
@@ -32,7 +34,7 @@ function runNodeScript(scriptName, cwd) {
   const result = spawnSync(process.execPath, [scriptName], {
     cwd,
     env: { ...process.env },
-    encoding: 'utf8'
+    encoding: 'utf8',
   });
 
   if (result.status !== 0) {
@@ -86,7 +88,7 @@ async function runPhase2SamplePipeline(fixtureFile = defaultFixtureFile) {
     metrics1: await readJson(path.join(tempJsonDir, 'playerStats03_ZScores_104_Metrics.json')),
     metrics2: await readJson(path.join(tempJsonDir, 'playerStats03_ZScores_204_Metrics.json')),
     metrics3: await readJson(path.join(tempJsonDir, 'playerStats03_ZScores_304_Metrics.json')),
-    csv: await fsp.readFile(path.join(tempCsvDir, 'playerStatstoCSV1-3.csv'), 'utf8')
+    csv: await fsp.readFile(path.join(tempCsvDir, 'playerStatstoCSV1-3.csv'), 'utf8'),
   };
 
   await fsp.rm(tempBase, { recursive: true, force: true });
@@ -97,18 +99,31 @@ async function readExpectedOutputs(expectedRoot = defaultExpectedRoot) {
   return {
     filtered: await readJson(path.join(expectedRoot, 'playerStats02_Filtered.expected.json')),
     numerical: await readJson(path.join(expectedRoot, 'playerStats02_Numerical.expected.json')),
-    zscores0Hash: (await fsp.readFile(path.join(expectedRoot, 'playerStats03_ZScores_0.expected.sha256'), 'utf8')).trim(),
-    metrics0Hash: (await fsp.readFile(path.join(expectedRoot, 'playerStats03_ZScores_004_Metrics.expected.sha256'), 'utf8')).trim(),
-    metrics1: await readJson(path.join(expectedRoot, 'playerStats03_ZScores_104_Metrics.expected.json')),
-    metrics2: await readJson(path.join(expectedRoot, 'playerStats03_ZScores_204_Metrics.expected.json')),
-    metrics3: await readJson(path.join(expectedRoot, 'playerStats03_ZScores_304_Metrics.expected.json')),
-    csv: await fsp.readFile(path.join(expectedRoot, 'playerStatstoCSV1-3.expected.csv'), 'utf8')
+    zscores0Hash: (
+      await fsp.readFile(path.join(expectedRoot, 'playerStats03_ZScores_0.expected.sha256'), 'utf8')
+    ).trim(),
+    metrics0Hash: (
+      await fsp.readFile(
+        path.join(expectedRoot, 'playerStats03_ZScores_004_Metrics.expected.sha256'),
+        'utf8',
+      )
+    ).trim(),
+    metrics1: await readJson(
+      path.join(expectedRoot, 'playerStats03_ZScores_104_Metrics.expected.json'),
+    ),
+    metrics2: await readJson(
+      path.join(expectedRoot, 'playerStats03_ZScores_204_Metrics.expected.json'),
+    ),
+    metrics3: await readJson(
+      path.join(expectedRoot, 'playerStats03_ZScores_304_Metrics.expected.json'),
+    ),
+    csv: await fsp.readFile(path.join(expectedRoot, 'playerStatstoCSV1-3.expected.csv'), 'utf8'),
   };
 }
 
 module.exports = {
   runPhase2SamplePipeline,
-  readExpectedOutputs
+  readExpectedOutputs,
 };
 
 if (require.main === module) {

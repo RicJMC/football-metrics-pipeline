@@ -1,0 +1,14 @@
+node_modules/
+data/
+jsonfiles/
+csv/
+tmp/
+scrappe/tmp/
+scripts/old/
+sample-data/
+scriptgpt/
+*.log
+errorLog*
+package-lock.json
+# Markdown is out of scope for the lint/format adoption (ADR-0005); revisit later.
+*.md

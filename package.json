@@ -12,6 +12,10 @@
     "pipeline:sample": "node scripts/pipeline-sample.js",
     "pipeline:sample:stage1": "node scripts/pipeline-sample.js --stage1",
     "inventory": "node -v && npm -v",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "npm run test:characterization",
     "test:characterization": "node --test test/characterization/*.test.js",
     "verify": "node scripts/verify.js"
@@ -33,5 +37,13 @@
     "objects-to-csv": "^1.3.6",
     "puppeteer": "^22.3.0",
     "simple-statistics": "^7.8.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-n": "^17.24.0",
+    "globals": "^15.15.0",
+    "prettier": "^3.8.3"
   }
 }

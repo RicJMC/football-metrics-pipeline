@@ -26,12 +26,8 @@ function run(command, args, options = {}) {
     encoding: 'utf8',
     stdio: options.captureOutput ? 'pipe' : 'inherit',
     shell: false,
-    ...options
+    ...options,
   });
-}
-
-function npmCommand() {
-  return process.platform === 'win32' ? 'npm.cmd' : 'npm';
 }
 
 function ensureDir(dirPath) {
@@ -66,7 +62,7 @@ function checkPaths() {
     'test/characterization/edgeCases.test.js',
     'sample-data/etl-stage1/data/24-Serie-A/2024/standard/2024-Serie-A-standard.json',
     'sample-data/etl-stage1/expected/playerStats01_Unicos.expected.json',
-    'docs/adr/README.md'
+    'docs/adr/README.md',
   ];
 
   for (const relativePath of requiredPaths) {
@@ -97,7 +93,7 @@ function checkJsonFixtures() {
     'sample-data/etl-phase2/expected/playerStats03_ZScores_204_Metrics.expected.json',
     'sample-data/etl-phase2/expected/playerStats03_ZScores_304_Metrics.expected.json',
     'sample-data/etl-stage1/data/24-Serie-A/2024/standard/2024-Serie-A-standard.json',
-    'sample-data/etl-stage1/expected/playerStats01_Unicos.expected.json'
+    'sample-data/etl-stage1/expected/playerStats01_Unicos.expected.json',
   ];
 
   for (const relativePath of jsonFiles) {
@@ -116,7 +112,9 @@ function checkShellSyntax() {
     return;
   }
 
-  const bashCheck = run('bash', ['-n', path.join(rootDir, 'scripts', 'verify.sh')], { captureOutput: true });
+  const bashCheck = run('bash', ['-n', path.join(rootDir, 'scripts', 'verify.sh')], {
+    captureOutput: true,
+  });
 
   if (bashCheck.error) {
     skip('bash not available; skipped bash -n scripts/verify.sh');
@@ -131,7 +129,9 @@ function checkShellSyntax() {
 }
 
 function runCharacterizationTests() {
-  const result = run(process.execPath, ['--test', 'test/characterization/phase2Pipeline.test.js'], { captureOutput: true });
+  const result = run(process.execPath, ['--test', 'test/characterization/phase2Pipeline.test.js'], {
+    captureOutput: true,
+  });
 
   if (result.status === 0) {
     ok('characterization tests');
@@ -164,7 +164,7 @@ function runSecretScan() {
     ':(exclude)csv/**',
     ':(exclude)data/**',
     ':(exclude)jsonfiles/**',
-    ':(exclude)tmp/**'
+    ':(exclude)tmp/**',
   ];
 
   const result = run('git', args, { captureOutput: true });
@@ -191,6 +191,31 @@ function runSecretScan() {
   fail(`secret-pattern scan failed (${(result.stderr || '').trim()})`);
 }
 
+function runLint() {
+  const eslintEntry = path.join(rootDir, 'node_modules', 'eslint', 'bin', 'eslint.js');
+
+  if (!fs.existsSync(eslintEntry)) {
+    skip('eslint not installed; run `npm ci` to enable lint step');
+    return;
+  }
+
+  const result = run(process.execPath, [eslintEntry, '.', '--max-warnings=999'], {
+    captureOutput: true,
+  });
+
+  if (result.status === 0) {
+    ok('eslint (no errors)');
+  } else {
+    fail('eslint reported errors');
+    if (result.stdout) {
+      process.stdout.write(result.stdout);
+    }
+    if (result.stderr) {
+      process.stderr.write(result.stderr);
+    }
+  }
+}
+
 function main() {
   console.log(`[verify] root: ${rootDir}`);
   ensureDir(tmpDir);
@@ -202,6 +227,8 @@ function main() {
   checkJsonFixtures();
   console.log('[verify] shell syntax');
   checkShellSyntax();
+  console.log('[verify] lint (eslint)');
+  runLint();
   console.log('[verify] characterization tests');
   runCharacterizationTests();
   console.log('[verify] secret-pattern scan');

@@ -52,8 +52,8 @@ Current status:
 - Minimal GitHub Actions verification workflow runs `npm run verify` on `push`/`pull_request` to `main`; CI has been green on every commit since the workflow landed.
 - 5 ADRs published under [docs/adr/](adr/) covering history rewrite, generated-data quarantine, sample-data policy, fixture layout and synthetic-data constraint.
 - Two scoped Copilot agents (`designer`, `implementer`) defined under `.github/agents/` to keep modernization incremental and characterization-first.
-- Pending: pick a lint/format toolchain (candidate: `eslint` flat config + `prettier`) — to be decided in a dedicated ADR.
-- Pending: first module extraction (candidate: `scripts/playerStats02_filter.js`, the most isolated stage) once lint is in place.
+- Lint/format toolchain adopted: ESLint v9 flat config + Prettier wired into `npm run verify` and CI (see [ADR-0005](adr/0005-lint-format-toolchain.md)). Strict on new code; warn-only on legacy until each file is refactored.
+- Pending: first module extraction (candidate: `scripts/playerStats02_filter.js`, the most isolated stage).
 
 Validation:
 

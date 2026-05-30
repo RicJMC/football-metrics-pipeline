@@ -1,4 +1,3 @@
-const fs = require('fs');
 const fsp = require('fs/promises');
 const path = require('path');
 const { spawnSync } = require('child_process');
@@ -27,7 +26,7 @@ function runNodeScript(scriptName, cwd) {
   const result = spawnSync(process.execPath, [scriptName], {
     cwd,
     env: { ...process.env },
-    encoding: 'utf8'
+    encoding: 'utf8',
   });
   if (result.status !== 0) {
     const stdout = result.stdout || '';
@@ -56,14 +55,14 @@ async function runStage1Pipeline(dataDir) {
   await ensureDir(tempJsonDir);
   await fsp.copyFile(
     path.join(repoRoot, 'scripts', stage1Script),
-    path.join(tempScriptsDir, stage1Script)
+    path.join(tempScriptsDir, stage1Script),
   );
   await copyDir(dataDir, tempDataDir);
 
   runNodeScript(stage1Script, tempScriptsDir);
 
   const output = JSON.parse(
-    await fsp.readFile(path.join(tempJsonDir, 'playerStats01_Unicos.json'), 'utf8')
+    await fsp.readFile(path.join(tempJsonDir, 'playerStats01_Unicos.json'), 'utf8'),
   );
 
   await fsp.rm(tempBase, { recursive: true, force: true });

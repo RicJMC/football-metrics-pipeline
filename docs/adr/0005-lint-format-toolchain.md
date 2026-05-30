@@ -1,6 +1,6 @@
 # ADR-0005: Adopt ESLint flat config + Prettier as the lint/format toolchain
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-05-30
 - **Deciders:** Repository owner
 

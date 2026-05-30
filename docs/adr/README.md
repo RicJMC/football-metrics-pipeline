@@ -9,14 +9,14 @@ Template: [0000-template.md](0000-template.md) (lightweight [MADR](https://adr.g
 
 ## Index
 
-| # | Title | Status |
-| --- | --- | --- |
-| [0001](0001-fresh-history-rewrite.md) | Fresh Git history before public release | Accepted |
-| [0002](0002-quarantine-generated-data.md) | Keep generated data and logs out of Git | Accepted |
-| [0003](0003-characterization-first-modernization.md) | Characterization tests before any refactor | Accepted |
-| [0004](0004-sample-data-scope.md) | Synthetic sample data only, no scraped data in Git | Accepted |
-| [0005](0005-lint-format-toolchain.md) | Adopt ESLint flat config + Prettier as lint/format toolchain | Proposed |
-| [0006](0006-agentic-pr-workflow.md) | Adopt an agentic PR workflow with a human merge gate | Proposed |
+| #                                                    | Title                                                        | Status   |
+| ---------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| [0001](0001-fresh-history-rewrite.md)                | Fresh Git history before public release                      | Accepted |
+| [0002](0002-quarantine-generated-data.md)            | Keep generated data and logs out of Git                      | Accepted |
+| [0003](0003-characterization-first-modernization.md) | Characterization tests before any refactor                   | Accepted |
+| [0004](0004-sample-data-scope.md)                    | Synthetic sample data only, no scraped data in Git           | Accepted |
+| [0005](0005-lint-format-toolchain.md)                | Adopt ESLint flat config + Prettier as lint/format toolchain | Accepted |
+| [0006](0006-agentic-pr-workflow.md)                  | Adopt an agentic PR workflow with a human merge gate         | Proposed |
 
 ## Adding a new ADR
 

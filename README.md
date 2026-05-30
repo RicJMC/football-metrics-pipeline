@@ -49,19 +49,19 @@ For more, see [docs/QUICKSTART.md](docs/QUICKSTART.md).
 
 ## Repository layout
 
-| Path | Purpose |
-| --- | --- |
-| `scrappe/` | Puppeteer scrapers, one per competition (manual mode). |
-| `scripts/` | 5-stage ETL chain (`playerStats01_unicos.js` → `playerStats05_CSV.js`) and `scripts/index.js` orchestrator. |
-| `scripts/pipeline-sample.js` | Thin CLI that runs the ETL against the bundled sample data and writes a CSV to `tmp/sample-output/`. |
-| `scripts/verify.js` | Cross-platform repo verifier (paths, package metadata, secret-pattern scan, characterization tests). |
-| `sample-data/etl-phase2/` | Synthetic stage-2 input + approved outputs (canonical happy-path fixture). |
-| `sample-data/etl-stage1/` | Synthetic mocked `data/` tree (4 categories, 2 leagues, 6 players) + expected stage-1 output. |
-| `sample-data/edge-cases/` | Three fixtures for missing fields, multi-team transfers, and the `< 3 game` filter. |
-| `test/characterization/` | `node --test` snapshot tests that pin current ETL behavior before any refactor. |
-| `docs/` | Architecture, pipeline doc, data policy, modernization plan, publishing checklist, handoffs. |
-| `.github/workflows/verify.yml` | CI: runs `npm ci` + `npm run verify` on push/PR to `main`. |
-| `data/`, `jsonfiles/`, `csv/`, `*.log` | Generated artifacts. Kept out of Git on purpose (see [docs/DATA_POLICY.md](docs/DATA_POLICY.md)). |
+| Path                                   | Purpose                                                                                                     |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `scrappe/`                             | Puppeteer scrapers, one per competition (manual mode).                                                      |
+| `scripts/`                             | 5-stage ETL chain (`playerStats01_unicos.js` → `playerStats05_CSV.js`) and `scripts/index.js` orchestrator. |
+| `scripts/pipeline-sample.js`           | Thin CLI that runs the ETL against the bundled sample data and writes a CSV to `tmp/sample-output/`.        |
+| `scripts/verify.js`                    | Cross-platform repo verifier (paths, package metadata, secret-pattern scan, characterization tests).        |
+| `sample-data/etl-phase2/`              | Synthetic stage-2 input + approved outputs (canonical happy-path fixture).                                  |
+| `sample-data/etl-stage1/`              | Synthetic mocked `data/` tree (4 categories, 2 leagues, 6 players) + expected stage-1 output.               |
+| `sample-data/edge-cases/`              | Three fixtures for missing fields, multi-team transfers, and the `< 3 game` filter.                         |
+| `test/characterization/`               | `node --test` snapshot tests that pin current ETL behavior before any refactor.                             |
+| `docs/`                                | Architecture, pipeline doc, data policy, modernization plan, publishing checklist, handoffs.                |
+| `.github/workflows/verify.yml`         | CI: runs `npm ci` + `npm run verify` on push/PR to `main`.                                                  |
+| `data/`, `jsonfiles/`, `csv/`, `*.log` | Generated artifacts. Kept out of Git on purpose (see [docs/DATA_POLICY.md](docs/DATA_POLICY.md)).           |
 
 ## Canonical commands
 
@@ -69,8 +69,10 @@ For more, see [docs/QUICKSTART.md](docs/QUICKSTART.md).
 npm ci                          # install dependencies
 npm run pipeline:sample         # run ETL stages 02-05 on bundled sample data
 npm run pipeline:sample:stage1  # run stage 01 only on the mocked data tree (etl-stage1)
+npm run lint                    # eslint flat config (strict on new code, warn-only on legacy)
+npm run format                  # prettier write
 npm run test:characterization   # node --test snapshot suite (sample + 3 edge cases + stage 1)
-npm run verify                  # full repo verification (paths, metadata, secret scan, tests)
+npm run verify                  # full repo verification (paths, metadata, lint, secret scan, tests)
 ```
 
 Legacy commands (require real scraped data under `data/`, which is not bundled):
@@ -101,11 +103,12 @@ If you want to run the full pipeline against real data, point the scrapers at FB
 - ✅ Characterization tests for stages 2-5 (happy path + 3 edge cases).
 - ✅ Stage 1 sample fixture (`sample-data/etl-stage1/`, mocked data tree).
 - ✅ Cross-platform `verify.js` + GitHub Actions CI.
+- ✅ Lint/format toolchain (ESLint flat + Prettier) wired into `npm run verify` and CI.
 - ✅ Sample-data demo (`pipeline:sample`).
 - ✅ Architecture decisions captured as ADRs (5 records).
 - ✅ Copilot agents (`designer`/`implementer`) for safe incremental modernization.
 - ⏳ Offline scraper test against a fixture FBref page.
-- ⏳ Lint/format and modular refactor.
+- ⏳ Modular refactor (stage-by-stage extraction).
 - ⏳ Optional TypeScript migration.
 
 Modernization order is tracked in [docs/MODERNIZATION_PLAN.md](docs/MODERNIZATION_PLAN.md). Engineering decisions are recorded as ADRs under [docs/adr/](docs/adr/).
