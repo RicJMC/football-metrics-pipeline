@@ -58,8 +58,20 @@
       }
     ],
     "checks": [
-      { "name": "verify", "conclusion": "success" },
-      { "name": "extra-flaky-check", "conclusion": "failure" }
+      {
+        "bucket": "pass",
+        "name": "verify",
+        "state": "SUCCESS",
+        "workflow": "Verify",
+        "link": "https://github.com/example-owner/example-repo/actions/runs/1/job/10"
+      },
+      {
+        "bucket": "fail",
+        "name": "extra-flaky-check",
+        "state": "FAILURE",
+        "workflow": "Flaky",
+        "link": "https://github.com/example-owner/example-repo/actions/runs/1/job/11"
+      }
     ]
   },
   "expected": {
@@ -120,8 +132,18 @@
     "ciStatus": {
       "conclusion": "failure",
       "checks": [
-        { "name": "verify", "conclusion": "success" },
-        { "name": "extra-flaky-check", "conclusion": "failure" }
+        {
+          "name": "verify",
+          "conclusion": "success",
+          "workflow": "Verify",
+          "link": "https://github.com/example-owner/example-repo/actions/runs/1/job/10"
+        },
+        {
+          "name": "extra-flaky-check",
+          "conclusion": "failure",
+          "workflow": "Flaky",
+          "link": "https://github.com/example-owner/example-repo/actions/runs/1/job/11"
+        }
       ]
     }
   }

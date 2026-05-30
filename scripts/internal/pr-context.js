@@ -54,23 +54,58 @@ function normalizeReviews(reviews) {
   }));
 }
 
+// Bucket → conclusion mapping (derived from `gh pr checks --json bucket`).
+// `gh pr checks` does not expose a `conclusion` field; we normalize the
+// `bucket` value (the cross-CI rollup gh already computes) into a stable
+// vocabulary that matches the GitHub check-runs `conclusion` shape so the
+// ADR-0007 contract for ciStatus stays unchanged.
+//
+//   bucket    → conclusion
+//   pass      → success
+//   fail      → failure
+//   pending   → pending
+//   skipping  → skipped
+//   cancel    → cancelled
+//   <other>   → unknown (defensive; new gh buckets surface as-is for triage)
+//
+// Overall ciStatus.conclusion is derived deterministically from the
+// per-check conclusions, in this precedence order:
+//   1. any 'failure'   → 'failure'
+//   2. else any 'pending' → 'pending'
+//   3. else any 'cancelled' → 'cancelled'
+//   4. else all 'skipped'   → 'skipped'
+//   5. else                 → 'success'
+// Empty / non-array input → 'unknown'.
+const BUCKET_TO_CONCLUSION = {
+  pass: 'success',
+  fail: 'failure',
+  pending: 'pending',
+  skipping: 'skipped',
+  cancel: 'cancelled',
+};
+
+function bucketToConclusion(bucket) {
+  if (!bucket) return 'unknown';
+  return BUCKET_TO_CONCLUSION[String(bucket).toLowerCase()] || 'unknown';
+}
+
 function deriveCiConclusion(checks) {
   if (!Array.isArray(checks) || checks.length === 0) return 'unknown';
   const conclusions = checks.map((c) => (c.conclusion || '').toLowerCase());
-  if (conclusions.some((c) => c === 'failure' || c === 'cancelled' || c === 'timed_out')) {
-    return 'failure';
-  }
-  if (conclusions.every((c) => c === 'success' || c === 'skipped' || c === 'neutral')) {
-    return 'success';
-  }
-  return 'pending';
+  if (conclusions.some((c) => c === 'failure')) return 'failure';
+  if (conclusions.some((c) => c === 'pending')) return 'pending';
+  if (conclusions.some((c) => c === 'cancelled')) return 'cancelled';
+  if (conclusions.every((c) => c === 'skipped')) return 'skipped';
+  return 'success';
 }
 
 function normalizeChecks(checks) {
   if (!Array.isArray(checks)) return { conclusion: 'unknown', checks: [] };
   const normalized = checks.map((c) => ({
     name: c.name,
-    conclusion: c.conclusion || null,
+    conclusion: bucketToConclusion(c.bucket),
+    workflow: c.workflow || null,
+    link: c.link || null,
   }));
   return { conclusion: deriveCiConclusion(normalized), checks: normalized };
 }
@@ -149,7 +184,7 @@ async function fetchPrContext(prNumber, options = {}) {
     '--repo',
     repo,
     '--json',
-    'name,conclusion',
+    'bucket,name,state,workflow,link',
   ]);
 
   return fetchPrContextFromRaw({
