@@ -21,6 +21,7 @@ Template: [0000-template.md](0000-template.md) (lightweight [MADR](https://adr.g
 | [0008](0008-ci-side-ai-reviewer.md)                  | CI-side AI reviewer via GitHub Actions                       | Proposed |
 | [0009](0009-ai-memory-policy.md)                     | Curated AI memory and approval-gated updates                 | Proposed |
 | [0010](0010-awesome-copilot-pattern-adoption.md)     | Curated adoption of patterns from `github/awesome-copilot`   | Proposed |
+| [0011](0011-multi-agent-orchestration.md)            | Multi-agent orchestration via GitHub Issues + Actions        | Proposed |
 
 ## Adding a new ADR
 
