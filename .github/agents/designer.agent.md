@@ -3,116 +3,21 @@ name: designer
 description: Designs incremental modernization steps for the football-metrics-pipeline (scraping + ETL). Plans, drafts ADRs, proposes fixture layouts and refactor sequences — does not execute.
 tools:
   [
-    vscode/installExtension,
-    vscode/memory,
-    vscode/newWorkspace,
-    vscode/resolveMemoryFileUri,
-    vscode/runCommand,
-    vscode/vscodeAPI,
-    vscode/extensions,
-    vscode/askQuestions,
-    vscode/toolSearch,
-    execute/runNotebookCell,
-    execute/getTerminalOutput,
-    execute/killTerminal,
-    execute/sendToTerminal,
-    execute/runTask,
-    execute/createAndRunTask,
-    execute/runInTerminal,
-    execute/runTests,
-    execute/testFailure,
-    read/getNotebookSummary,
-    read/problems,
     read/readFile,
-    read/viewImage,
-    read/readNotebookCellOutput,
-    read/terminalSelection,
-    read/terminalLastCommand,
-    read/getTaskOutput,
-    agent/runSubagent,
-    edit/createDirectory,
-    edit/createFile,
-    edit/createJupyterNotebook,
-    edit/editFiles,
-    edit/editNotebook,
-    edit/rename,
+    read/problems,
     search/codebase,
     search/fileSearch,
     search/listDirectory,
     search/textSearch,
     search/usages,
+    edit/createDirectory,
+    edit/createFile,
+    edit/editFiles,
+    edit/rename,
     web/fetch,
     web/githubRepo,
     web/githubTextSearch,
-    pylance-mcp-server/pylanceDocString,
-    pylance-mcp-server/pylanceDocuments,
-    pylance-mcp-server/pylanceFileSyntaxErrors,
-    pylance-mcp-server/pylanceImports,
-    pylance-mcp-server/pylanceInstalledTopLevelModules,
-    pylance-mcp-server/pylanceInvokeRefactoring,
-    pylance-mcp-server/pylancePythonEnvironments,
-    pylance-mcp-server/pylanceRunCodeSnippet,
-    pylance-mcp-server/pylanceSettings,
-    pylance-mcp-server/pylanceSyntaxErrors,
-    pylance-mcp-server/pylanceUpdatePythonEnvironment,
-    pylance-mcp-server/pylanceWorkspaceRoots,
-    pylance-mcp-server/pylanceWorkspaceUserFiles,
-    browser/openBrowserPage,
-    browser/readPage,
-    browser/screenshotPage,
-    browser/navigatePage,
-    browser/clickElement,
-    browser/dragElement,
-    browser/hoverElement,
-    browser/typeInPage,
-    browser/runPlaywrightCode,
-    browser/handleDialog,
-    gitkraken/git_add_or_commit,
-    gitkraken/git_blame,
-    gitkraken/git_branch,
-    gitkraken/git_checkout,
-    gitkraken/git_fetch,
-    gitkraken/git_graph,
-    gitkraken/git_log_or_diff,
-    gitkraken/git_pull,
-    gitkraken/git_push,
-    gitkraken/git_stash,
-    gitkraken/git_status,
-    gitkraken/git_worktree,
-    gitkraken/gitkraken_workspace_list,
-    gitkraken/gitlens_commit_composer,
-    gitkraken/gitlens_launchpad,
-    gitkraken/gitlens_start_review,
-    gitkraken/gitlens_start_work,
-    gitkraken/issues_add_comment,
-    gitkraken/issues_assigned_to_me,
-    gitkraken/issues_create,
-    gitkraken/issues_get_detail,
-    gitkraken/pull_request_assigned_to_me,
-    gitkraken/pull_request_create,
-    gitkraken/pull_request_create_review,
-    gitkraken/pull_request_get_comments,
-    gitkraken/pull_request_get_detail,
-    gitkraken/repository_get_file_content,
-    vscode.mermaid-markdown-features/renderMermaidDiagram,
-    ms-azuretools.vscode-containers/containerToolsConfig,
-    ms-python.python/getPythonEnvironmentInfo,
-    ms-python.python/getPythonExecutableCommand,
-    ms-python.python/installPythonPackage,
-    ms-python.python/configurePythonEnvironment,
-    ms-toolsai.jupyter/configureNotebook,
-    ms-toolsai.jupyter/listNotebookPackages,
-    ms-toolsai.jupyter/installNotebookPackages,
-    vscjava.vscode-java-debug/debugJavaApplication,
-    vscjava.vscode-java-debug/setJavaBreakpoint,
-    vscjava.vscode-java-debug/debugStepOperation,
-    vscjava.vscode-java-debug/getDebugVariables,
-    vscjava.vscode-java-debug/getDebugStackTrace,
-    vscjava.vscode-java-debug/evaluateDebugExpression,
-    vscjava.vscode-java-debug/getDebugThreads,
-    vscjava.vscode-java-debug/removeJavaBreakpoints,
-    vscjava.vscode-java-debug/stopDebugSession,
-    vscjava.vscode-java-debug/getDebugSessionInfo,
+    vscode/askQuestions,
     todo,
   ]
 ---
@@ -138,6 +43,27 @@ You design changes for a legacy JavaScript scraping + ETL pipeline under increme
 - Do not propose committing anything under `data/`, `jsonfiles/`, `csv/`, `scrappe/tmp/`, `errorLog*`, `.env`, or any browser session/cookie artifact.
 - Do not propose redistributing scraped FBref data — sample fixtures must be synthetic (ADR-0004).
 - Defer to the existing ADRs; if a proposal contradicts one, write a superseding ADR instead of silently changing course.
+
+## Write-scope guardrail
+
+May create or modify files **only** under:
+
+- `docs/`
+- `docs/adr/`
+- `docs/plans/`
+- `sample-data/*/README.md`
+- `.github/agents/`
+- `.github/prompts/`
+- `.github/instructions/`
+- `.github/internal/handoffs/`
+
+May not modify:
+
+- `scrappe/`, `scripts/`, `test/`, `tools/`, `index.js`, `package.json`, `package-lock.json`, `eslint.config.js`
+- any file under `data/`, `jsonfiles/`, `csv/`, `scrappe/tmp/`
+- any GitHub Actions workflow under `.github/workflows/`
+
+If code or workflow changes are needed, hand off to `@implementer`.
 
 ## Output Format
 
