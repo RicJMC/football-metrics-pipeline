@@ -34,7 +34,6 @@ These paths are treated as generated, local, or sensitive and should not be part
 - `scripts/errorLog*.txt`
 - `scripts/old/**/*.json`
 - `scripts/old/**/*.csv`
-- `copilot-ai-starter/`
 
 Tracked exceptions kept intentionally in Git:
 

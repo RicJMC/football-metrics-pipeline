@@ -1,5 +1,7 @@
 # Quickstart
 
+> No FBref scraping is required to reproduce this demo. The bundled synthetic fixtures run the full ETL end-to-end in under a second.
+
 A 60-second tour of the repository for someone who just cloned it.
 
 ## Requirements
