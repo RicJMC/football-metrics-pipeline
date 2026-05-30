@@ -103,6 +103,73 @@ npm run verify                # full bundle (must be green before PR)
 3. Open a PR. Mark `Accepted` (or `Superseded by ADR-XXXX`) on merge.
 4. Update [docs/adr/README.md](docs/adr/README.md) index.
 
+## Local agentic playbook (ADR-0007)
+
+The local agents drive PRs through a small set of `gh` commands. The helper at [scripts/internal/pr-context.js](../scripts/internal/pr-context.js) is the single source of truth for reading PR state — it consolidates conversation comments, inline review comments, reviews, and CI checks in one normalized payload. See [ADR-0007](adr/0007-local-agent-pr-toolkit.md).
+
+### Marker conventions
+
+Every agent-authored review or comment body MUST begin with a machine-readable marker so the GitHub audit trail can distinguish agent activity from manual human activity (both are authored by the owner's `gh` identity locally):
+
+- Reviewer agent: `<!-- ai-reviewer:v1 -->` followed by `Verdict: APPROVE | REQUEST_CHANGES | COMMENT` and `Head SHA: <full sha>`.
+- Implementer agent: `<!-- ai-implementer:v1 -->` followed by `Head SHA: <full sha>`.
+
+### Happy path (no review feedback)
+
+```powershell
+# 1. Implementer opens the PR after pushing the branch.
+git push -u origin feat/short-description
+gh pr create `
+  --title "feat(scope): one-line conventional commit" `
+  --body-file .github/internal/pr-bodies/123.md `
+  --base main
+
+# 2. Wait for CI to start, then watch it.
+gh run list --branch feat/short-description --limit 1
+gh run watch <run-id> --exit-status
+
+# 3. Reviewer agent (or human) reads the full PR state.
+node scripts/internal/pr-context.js 123
+
+# 4. Reviewer posts the verdict (body file starts with the ai-reviewer marker).
+gh pr review 123 --approve --body-file .github/internal/reviews/123-approve.md
+
+# 5. Human merges (the only actor allowed to merge).
+gh pr merge 123 --squash --delete-branch
+```
+
+### Failure path (reviewer requests changes)
+
+```powershell
+# 1. Reviewer posts REQUEST_CHANGES.
+gh pr review 124 --request-changes --body-file .github/internal/reviews/124-changes.md
+
+# 2. Implementer re-reads the full PR state (don't cherry-pick — read everything).
+node scripts/internal/pr-context.js 124
+
+# 3. Implementer commits the fixes on the same branch.
+git add -- <changed-files>
+git commit -m "fix(scope): address reviewer feedback on <thing>"
+git push
+
+# 4. Implementer posts a reply comment (body starts with the ai-implementer marker).
+gh pr review 124 --comment --body-file .github/internal/reviews/124-reply.md
+
+# 5. Reviewer re-runs pr-context.js, re-evaluates, posts APPROVE.
+node scripts/internal/pr-context.js 124
+gh pr review 124 --approve --body-file .github/internal/reviews/124-approve.md
+
+# 6. Human merges.
+gh pr merge 124 --squash --delete-branch
+```
+
+### Hard rules
+
+- Only the **human owner** runs `gh pr merge`. No agent — implementer or reviewer — is ever allowed to merge, under any flag, for any reason.
+- The **implementer** never self-approves its own PR. It may only post `--comment` replies.
+- The **reviewer** may use `--approve`, `--request-changes`, or `--comment`. Never `--merge`, never `gh pr close`.
+- Every agent review/comment body starts with its versioned marker (see above).
+
 ## Reporting security issues
 
 See [docs/SECURITY.md](docs/SECURITY.md).

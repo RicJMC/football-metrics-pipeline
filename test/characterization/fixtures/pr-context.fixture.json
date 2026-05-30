@@ -1,0 +1,128 @@
+{
+  "_comment": "Synthetic PR-context fixture for ADR-0007. Shapes mirror real `gh` JSON outputs but all identifiers, logins, and SHAs are fabricated. No real GitHub data is redistributed (ADR-0004 spirit applied to GitHub payloads).",
+  "raw": {
+    "prView": {
+      "number": 42,
+      "title": "feat(stage1): add deterministic player ID hash",
+      "headRefOid": "a1b2c3d4e5f6789012345678901234567890abcd",
+      "state": "OPEN",
+      "url": "https://github.com/example-owner/example-repo/pull/42",
+      "author": { "login": "synthetic-author" },
+      "comments": [
+        {
+          "id": "IC_kw100",
+          "author": { "login": "synthetic-human-reviewer" },
+          "body": "Nice cleanup. Could you split commit 2 into doc-only and behavior changes?",
+          "createdAt": "2026-05-30T10:15:00Z"
+        },
+        {
+          "id": "IC_kw101",
+          "author": { "login": "synthetic-bot[bot]" },
+          "body": "<!-- ai-reviewer:v1 -->\nVerdict: COMMENT\nHead SHA: a1b2c3d4e5f6789012345678901234567890abcd\n\nNo blocking issues; reminder to update ADR index.",
+          "createdAt": "2026-05-30T10:20:00Z"
+        }
+      ]
+    },
+    "inlineComments": [
+      {
+        "id": 9001,
+        "user": { "login": "synthetic-human-reviewer" },
+        "path": "scripts/internal/build-stage1-fixture.js",
+        "line": 47,
+        "body": "Hash collision risk if two players share name + birth year — add team to the key?",
+        "created_at": "2026-05-30T10:16:00Z"
+      },
+      {
+        "id": 9002,
+        "user": { "login": "synthetic-bot[bot]" },
+        "path": "test/characterization/stage1PipelineHarness.js",
+        "line": 88,
+        "body": "Consider asserting stable ordering before deep-equal.",
+        "created_at": "2026-05-30T10:21:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "PRR_kw200",
+        "author": { "login": "synthetic-human-reviewer" },
+        "state": "APPROVED",
+        "body": "LGTM after addressing the inline comment on the fixture builder.",
+        "submittedAt": "2026-05-30T10:30:00Z"
+      },
+      {
+        "id": "PRR_kw201",
+        "author": { "login": "synthetic-bot[bot]" },
+        "state": "COMMENTED",
+        "body": "<!-- ai-reviewer:v1 -->\nVerdict: COMMENT\nHead SHA: a1b2c3d4e5f6789012345678901234567890abcd\n\nDeferred to human judgement on the hashing scheme.",
+        "submittedAt": "2026-05-30T10:31:00Z"
+      }
+    ],
+    "checks": [
+      { "name": "verify", "conclusion": "success" },
+      { "name": "extra-flaky-check", "conclusion": "failure" }
+    ]
+  },
+  "expected": {
+    "number": 42,
+    "title": "feat(stage1): add deterministic player ID hash",
+    "headSha": "a1b2c3d4e5f6789012345678901234567890abcd",
+    "state": "OPEN",
+    "url": "https://github.com/example-owner/example-repo/pull/42",
+    "author": "synthetic-author",
+    "conversationComments": [
+      {
+        "id": "IC_kw100",
+        "author": "synthetic-human-reviewer",
+        "body": "Nice cleanup. Could you split commit 2 into doc-only and behavior changes?",
+        "createdAt": "2026-05-30T10:15:00Z"
+      },
+      {
+        "id": "IC_kw101",
+        "author": "synthetic-bot[bot]",
+        "body": "<!-- ai-reviewer:v1 -->\nVerdict: COMMENT\nHead SHA: a1b2c3d4e5f6789012345678901234567890abcd\n\nNo blocking issues; reminder to update ADR index.",
+        "createdAt": "2026-05-30T10:20:00Z"
+      }
+    ],
+    "inlineComments": [
+      {
+        "id": 9001,
+        "author": "synthetic-human-reviewer",
+        "path": "scripts/internal/build-stage1-fixture.js",
+        "line": 47,
+        "body": "Hash collision risk if two players share name + birth year — add team to the key?",
+        "createdAt": "2026-05-30T10:16:00Z"
+      },
+      {
+        "id": 9002,
+        "author": "synthetic-bot[bot]",
+        "path": "test/characterization/stage1PipelineHarness.js",
+        "line": 88,
+        "body": "Consider asserting stable ordering before deep-equal.",
+        "createdAt": "2026-05-30T10:21:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "PRR_kw200",
+        "author": "synthetic-human-reviewer",
+        "state": "APPROVED",
+        "body": "LGTM after addressing the inline comment on the fixture builder.",
+        "submittedAt": "2026-05-30T10:30:00Z"
+      },
+      {
+        "id": "PRR_kw201",
+        "author": "synthetic-bot[bot]",
+        "state": "COMMENTED",
+        "body": "<!-- ai-reviewer:v1 -->\nVerdict: COMMENT\nHead SHA: a1b2c3d4e5f6789012345678901234567890abcd\n\nDeferred to human judgement on the hashing scheme.",
+        "submittedAt": "2026-05-30T10:31:00Z"
+      }
+    ],
+    "ciStatus": {
+      "conclusion": "failure",
+      "checks": [
+        { "name": "verify", "conclusion": "success" },
+        { "name": "extra-flaky-check", "conclusion": "failure" }
+      ]
+    }
+  }
+}

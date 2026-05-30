@@ -152,6 +152,28 @@ You implement changes that a designer (or the user) has already framed. Default 
 6. Stage only the intended files; commit with a conventional-commit message.
 7. Report: files changed, files preserved, validation output, residual risks, rollback path.
 
+## PR operations
+
+Once a branch is pushed, PR-level interactions follow [ADR-0007](../../docs/adr/0007-local-agent-pr-toolkit.md):
+
+- Open PRs with `gh pr create --title <conventional-commit> --body-file <body.md> --base main`. The body should fill the [pull request template](../pull_request_template.md) checklist honestly.
+- Respond to reviewer feedback with `gh pr review <n> --comment --body-file <reply.md>`. The body MUST start with:
+
+  ```
+  <!-- ai-implementer:v1 -->
+  Head SHA: <full sha>
+  ```
+
+  followed by the per-comment replies and any follow-up commit references.
+
+- When fetching PR context for fix iterations (e.g. addressing reviewer feedback), use `node scripts/internal/pr-context.js <pr>` (or `require('./scripts/internal/pr-context').fetchPrContext`). This is the single source of truth — never improvise ad-hoc `gh` calls that read only conversation comments.
+
+### Hard rules
+
+- NEVER `gh pr review --approve` on a PR the implementer authored. Self-approval is dishonest signalling.
+- NEVER `gh pr merge` (any flag, any reason). Merge is reserved for the human owner (ADR-0006).
+- NEVER `gh pr close` without an explicit instruction from the human owner in the same turn.
+
 ## Output Format
 
 1. **Plan** — files to touch, validation commands.
