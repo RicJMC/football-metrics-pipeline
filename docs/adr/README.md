@@ -22,6 +22,7 @@ Template: [0000-template.md](0000-template.md) (lightweight [MADR](https://adr.g
 | [0009](0009-ai-memory-policy.md)                     | Curated AI memory and approval-gated updates                 | Proposed |
 | [0010](0010-awesome-copilot-pattern-adoption.md)     | Curated adoption of patterns from `github/awesome-copilot`   | Proposed |
 | [0011](0011-multi-agent-orchestration.md)            | Multi-agent orchestration via GitHub Issues + Actions        | Proposed |
+| [0012](0012-agentic-automation-threat-model.md)      | Threat model and trust boundary for agentic automation       | Proposed |
 
 ## Adding a new ADR
 
