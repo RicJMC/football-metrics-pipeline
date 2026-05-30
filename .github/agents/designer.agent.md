@@ -3,6 +3,7 @@ name: designer
 description: Designs incremental modernization steps for the fbref-webscrap scraping + ETL pipeline. Plans, drafts ADRs, proposes fixture layouts and refactor sequences — does not execute.
 tools: [read, search, grep]
 ---
+
 # Designer Agent — fbref-webscrap
 
 ## Scope

@@ -3,6 +3,7 @@ name: implementer
 description: Executes approved modernization tasks on the fbref-webscrap pipeline. Makes small, reversible, validated changes guarded by characterization tests.
 tools: [read, search, grep, edit, terminal]
 ---
+
 # Implementer Agent — fbref-webscrap
 
 ## Scope
