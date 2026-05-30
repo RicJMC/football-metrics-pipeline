@@ -7,7 +7,7 @@
 ## Context
 
 The pre-publication audit of the local repository surfaced two hard blockers
-for making `fbref-webscrap` public on GitHub:
+for making `football-metrics-pipeline` public on GitHub:
 
 1. **Large generated artifacts in history.** Ten or more blobs above 100 MB
    were reachable from older commits (largest 439 MB, several around 300 MB).

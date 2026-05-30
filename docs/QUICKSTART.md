@@ -11,8 +11,8 @@ A 60-second tour of the repository for someone who just cloned it.
 ## 1. Install
 
 ```bash
-git clone https://github.com/RicJMC/fbref-webscrap.git
-cd fbref-webscrap
+git clone https://github.com/RicJMC/football-metrics-pipeline.git
+cd football-metrics-pipeline
 npm ci
 ```
 

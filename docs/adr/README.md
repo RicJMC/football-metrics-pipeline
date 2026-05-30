@@ -1,6 +1,6 @@
 # Architecture Decision Records
 
-This directory captures the engineering decisions that shape `fbref-webscrap`.
+This directory captures the engineering decisions that shape `football-metrics-pipeline`.
 Each ADR records the context, the decision, the alternatives considered and the
 consequences. ADRs are append-only: when a decision changes we add a new ADR
 and mark the old one as `Superseded by ADR-XXXX`.

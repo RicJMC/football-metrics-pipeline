@@ -1,4 +1,4 @@
-# Copilot Instructions for fbref-webscrap
+# Copilot Instructions for football-metrics-pipeline
 
 This repository is a legacy football scraping + ETL pipeline under incremental modernization.
 

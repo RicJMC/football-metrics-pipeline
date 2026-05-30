@@ -1,8 +1,8 @@
-# fbref-webscrap
+# football-metrics-pipeline
 
 > Football scraping + ETL pipeline that turns FBref player tables into Z-score-based metrics, ready for analysis in Google Sheets or any BI tool.
 
-[![CI](https://github.com/RicJMC/fbref-webscrap/actions/workflows/verify.yml/badge.svg)](https://github.com/RicJMC/fbref-webscrap/actions/workflows/verify.yml)
+[![CI](https://github.com/RicJMC/football-metrics-pipeline/actions/workflows/verify.yml/badge.svg)](https://github.com/RicJMC/football-metrics-pipeline/actions/workflows/verify.yml)
 
 **Stack:** Node.js 22 · Puppeteer · plain ES2020 · `node --test`
 

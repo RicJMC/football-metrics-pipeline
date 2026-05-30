@@ -1,5 +1,5 @@
 {
-  "name": "fbref-webscrap",
+  "name": "football-metrics-pipeline",
   "version": "1.0.0",
   "description": "fbref web scrap",
   "main": "index.js",

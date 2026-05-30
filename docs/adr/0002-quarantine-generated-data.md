@@ -49,7 +49,7 @@ Only synthetic sample data lives in the repository, scoped under
 
 ## Consequences
 
-- Positive: `git clone` of `fbref-webscrap` is small and fast.
+- Positive: `git clone` of `football-metrics-pipeline` is small and fast.
 - Positive: No FBref redistribution exposure on the public remote.
 - Positive: Pipeline runs do not pollute commit history.
 - Negative: Reproducing a real run requires the user to scrape data
