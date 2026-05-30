@@ -19,6 +19,8 @@ Template: [0000-template.md](0000-template.md) (lightweight [MADR](https://adr.g
 | [0006](0006-agentic-pr-workflow.md)                  | Adopt an agentic PR workflow with a human merge gate         | Accepted |
 | [0007](0007-local-agent-pr-toolkit.md)               | Local agent toolkit for PR operations via `gh`               | Accepted |
 | [0008](0008-ci-side-ai-reviewer.md)                  | CI-side AI reviewer via GitHub Actions                       | Proposed |
+| [0009](0009-ai-memory-policy.md)                     | Curated AI memory and approval-gated updates                 | Proposed |
+| [0010](0010-awesome-copilot-pattern-adoption.md)     | Curated adoption of patterns from `github/awesome-copilot`   | Proposed |
 
 ## Adding a new ADR
 
