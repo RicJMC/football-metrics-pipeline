@@ -21,11 +21,11 @@ The current npm command intentionally prints a legacy-mode reminder instead of r
 
 ## 2) ETL Stage
 
-Primary root entry point: `index.js`
+**Canonical entry point:** `scripts/index.js`. This is the orchestrator used by the characterization tests and by `npm run etl:from-scripts-dir`.
 
-Legacy scripts-directory entry point: `scripts/index.js`
+**Legacy root entry point:** `index.js` at repo root. Preserved for backwards compatibility; will be deprecated in a later modernization phase.
 
-Executes the processing chain sequentially:
+Both entry points execute the processing chain sequentially:
 
 1. `playerStats01_unicos.js`
 2. `playerStats02_Numerical3games.js`
@@ -54,9 +54,26 @@ Characterization baseline:
 
 - Canonical automated validation uses `scripts/index.js` path semantics.
 - The tracked sample fixture lives under `sample-data/etl-phase2/` and starts from the `playerStats01_Unicos.json` contract.
+- Three additional fixtures under `sample-data/edge-cases/` cover missing fields, multi-team transfers and the stage-2 `< 3 games` filter.
 - Automated checks execute the sample path from stages 2–5 without running live scraping.
 
-## 3) End-to-End
+## 3) Sample-data demo
+
+Runs stages 02–05 against the bundled fixture and writes CSV + intermediate JSON to `tmp/sample-output/`:
+
+```bash
+npm run pipeline:sample
+```
+
+Point at any fixture (e.g. an edge case) with `--fixture`:
+
+```bash
+npm run pipeline:sample -- --fixture sample-data/edge-cases/multi-team/input/playerStats01_Unicos.sample.json
+```
+
+## 4) End-to-End against real data
+
+Requires real scraped data under `data/` (not bundled).
 
 ```bash
 npm run pipeline
@@ -68,3 +85,4 @@ npm run pipeline
 - Current flow is script-based and partially manual.
 - Generated outputs are large and must remain outside public Git history.
 - Characterization coverage currently starts at stage 2, not at raw scraping ingestion.
+- A stage 1 sample fixture (raw `data/` tree mock) is not yet provided.
