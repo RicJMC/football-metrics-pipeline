@@ -5,9 +5,9 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const repoRoot = path.resolve(__dirname, '..', '..');
-const sampleRoot = path.join(repoRoot, 'sample-data', 'etl-phase2');
-const fixtureFile = path.join(sampleRoot, 'input', 'playerStats01_Unicos.sample.json');
-const expectedRoot = path.join(sampleRoot, 'expected');
+const defaultSampleRoot = path.join(repoRoot, 'sample-data', 'etl-phase2');
+const defaultFixtureFile = path.join(defaultSampleRoot, 'input', 'playerStats01_Unicos.sample.json');
+const defaultExpectedRoot = path.join(defaultSampleRoot, 'expected');
 
 const stageScripts = [
   'playerStats02_Numerical3games.js',
@@ -57,7 +57,7 @@ async function readJson(filePath) {
   return JSON.parse(await fsp.readFile(filePath, 'utf8'));
 }
 
-async function runPhase2SamplePipeline() {
+async function runPhase2SamplePipeline(fixtureFile = defaultFixtureFile) {
   const tempRoot = path.join(repoRoot, 'tmp');
   await ensureDir(tempRoot);
 
@@ -93,7 +93,7 @@ async function runPhase2SamplePipeline() {
   return outputs;
 }
 
-async function readExpectedOutputs() {
+async function readExpectedOutputs(expectedRoot = defaultExpectedRoot) {
   return {
     filtered: await readJson(path.join(expectedRoot, 'playerStats02_Filtered.expected.json')),
     numerical: await readJson(path.join(expectedRoot, 'playerStats02_Numerical.expected.json')),
