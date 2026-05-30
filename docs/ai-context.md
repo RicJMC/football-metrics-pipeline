@@ -32,3 +32,11 @@
 - Changes are scoped and validated.
 - Relevant memory update is proposed (or "no memory needed" is explicitly stated).
 - Memory writes happen only after explicit approval.
+
+## AI memory workflow baseline (2026-05-30)
+
+- Durable memory lives in repository Markdown files, not editor session storage.
+- Memory updates are proposal-first and require explicit human approval before any write.
+- End-of-task completion includes one explicit memory outcome: incident, handoff, ADR, lesson learned, or no memory needed.
+- Operational supports in place: memory-curator agent contract, update-ai-memory prompt, and handoff template generator script.
+- Never store secrets, credentials, tokens, `.env` values, cookies, private URLs, or personal data in memory artifacts.
