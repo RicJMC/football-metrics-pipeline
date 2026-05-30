@@ -15,7 +15,8 @@ Plans here are **tactical**, not strategic:
 ## Conventions
 
 - Filename: `NNNN-short-slug.md` (4-digit zero-padded, monotonically increasing).
-- One plan per task. Keep plans under ~150 lines; if larger, split.
+- One plan per task. Prefer lightweight plans of ~150 lines or less when possible.
+- Longer tactical runbooks are allowed when coordinating multi-PR or multi-agent work, but they must stay tightly scoped and use clear sections, explicit boundaries, and a completion checklist.
 - Each plan must include: **Intent**, **Scope (files touched / preserved)**, **Steps**, **Validation**, **Rollback**.
 - Plans are disposable: once the task ships and the PR merges, the plan stays as a historical record but is not maintained.
 

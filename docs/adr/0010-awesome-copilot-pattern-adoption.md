@@ -74,7 +74,7 @@ A pattern from the catalog may be adopted only if it passes **all** of the follo
 Sequenced as small, independent PRs. Each PR must pass `git status --short` review before commit.
 
 - [ ] **PR-A (this ADR + docs)** — add this ADR and `docs/plans/README.md`. Docs only.
-- [ ] **PR-B (least privilege)** — shrink `tools:` lists of existing agents (`designer`, `implementer`, `reviewer`, `memory-curator`) and add a `## Write-scope guardrail` section to each. One commit per agent inside the PR for granular revert.
+- [ ] **PR-B (least privilege)** — shrink `tools:` lists of `designer` and `implementer`, add a `## Write-scope guardrail` section to both, and audit `reviewer` plus `memory-curator` for consistency only. `reviewer` and `memory-curator` are already curated in `main`, so they should not be expanded or reformatted without a concrete reason. Use one commit per touched agent for granular revert.
 - [ ] **PR-C (optional)** — introduce `modernization-planner` agent only if `@designer` proves to conflate strategic and tactical planning. Write-scope limited to `docs/plans/`.
 - [ ] **PR-D (optional)** — add `.github/prompts/evaluate-copilot-pattern.prompt.md` that applies the 5 filters and returns `ADOPT / ADAPT / REJECT` for a given external pattern.
 
