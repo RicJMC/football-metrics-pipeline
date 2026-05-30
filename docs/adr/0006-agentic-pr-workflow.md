@@ -1,6 +1,6 @@
 # ADR-0006: Adopt an agentic PR workflow with a human merge gate
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-05-30
 - **Deciders:** Repository owner
 

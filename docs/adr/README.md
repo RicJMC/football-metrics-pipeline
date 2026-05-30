@@ -16,7 +16,7 @@ Template: [0000-template.md](0000-template.md) (lightweight [MADR](https://adr.g
 | [0003](0003-characterization-first-modernization.md) | Characterization tests before any refactor                   | Accepted |
 | [0004](0004-sample-data-scope.md)                    | Synthetic sample data only, no scraped data in Git           | Accepted |
 | [0005](0005-lint-format-toolchain.md)                | Adopt ESLint flat config + Prettier as lint/format toolchain | Accepted |
-| [0006](0006-agentic-pr-workflow.md)                  | Adopt an agentic PR workflow with a human merge gate         | Proposed |
+| [0006](0006-agentic-pr-workflow.md)                  | Adopt an agentic PR workflow with a human merge gate         | Accepted |
 
 ## Adding a new ADR
 
