@@ -27,8 +27,10 @@ Goal: Add minimal reproducible sample and automated checks.
 Current status:
 
 - Phase 2 sample fixture exists for the stage-2 ETL contract under `sample-data/etl-phase2/`.
-- Characterization tests exist for stages 2–5 under `test/characterization/`.
-- `scripts/verify.sh` and `npm run verify` provide a local baseline check.
+- Stage 1 sample fixture exists under `sample-data/etl-stage1/` (mocked `data/` tree: 4 categories, 2 leagues, 6 synthetic players).
+- Edge-case fixtures cover `missing-fields`, `multi-team` and `filtered-out` under `sample-data/edge-cases/`.
+- Characterization tests exist for stages 1–5 under `test/characterization/` (5 tests via `node --test`, all green).
+- `scripts/verify.js` and `npm run verify` provide a cross-platform local baseline check (replaced the original `verify.sh` for Windows/macOS/Linux portability).
 - Canonical automated validation currently assumes `scripts/index.js` path semantics.
 
 Validation:
@@ -47,9 +49,28 @@ Goal: Improve maintainability without rewriting from scratch.
 
 Current status:
 
-- Minimal GitHub Actions verification workflow now runs `npm run verify` on `push`/`pull_request` to `main`.
+- Minimal GitHub Actions verification workflow runs `npm run verify` on `push`/`pull_request` to `main`; CI has been green on every commit since the workflow landed.
+- 5 ADRs published under [docs/adr/](adr/) covering history rewrite, generated-data quarantine, sample-data policy, fixture layout and synthetic-data constraint.
+- Two scoped Copilot agents (`designer`, `implementer`) defined under `.github/agents/` to keep modernization incremental and characterization-first.
+- Pending: pick a lint/format toolchain (candidate: `eslint` flat config + `prettier`) — to be decided in a dedicated ADR.
+- Pending: first module extraction (candidate: `scripts/playerStats02_filter.js`, the most isolated stage) once lint is in place.
 
 Validation:
 
 - CI green
 - no regression on sample outputs
+
+## Phase 4 — Polish & DX
+
+Goal: Make the modernized codebase pleasant to work in and contribute to.
+
+- Adopt lint/format (decision via ADR before adoption).
+- Refactor stage-by-stage, one PR per module, characterization tests as the regression gate.
+- Evaluate gradual TypeScript migration after 2–3 modules have been refactored under the new conventions.
+- Optional: publish a small reproducibility report (sample-run CSV diffed against a golden file) as a CI artifact.
+
+Validation:
+
+- characterization suite remains green at every step
+- no behavior change in sample outputs
+- ADR exists for each tooling decision adopted
