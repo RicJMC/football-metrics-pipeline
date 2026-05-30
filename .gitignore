@@ -1,0 +1,61 @@
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Generated datasets and outputs
+data/
+jsonfiles/
+outputs/
+exports/
+*.parquet
+*.duckdb
+*.sqlite
+*.db
+*.jsonl
+
+# Keep code/scripts in csv/ but ignore generated csv outputs
+csv/**/*.csv
+*.csv
+!sample-data/**/*.csv
+
+# Logs
+logs/
+*.log
+errorLog*.txt
+*Log*.txt
+scripts/*Log*.txt
+scripts/errorLog*.txt
+
+# Legacy generated artifacts under old script archives
+scripts/old/**/*.json
+scripts/old/**/*.csv
+
+# Puppeteer temp/session artifacts
+scrappe/tmp/
+tmp/
+.cache/
+.puppeteer/
+puppeteer-profile/
+user-data-dir/
+
+# Python artifacts
+.venv/
+__pycache__/
+*.pyc
+
+# OS/editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+
+# Local template clone (do not vendor into this repo)
+copilot-ai-starter/
