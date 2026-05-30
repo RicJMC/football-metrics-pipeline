@@ -6,6 +6,14 @@
 
 **Stack:** Node.js 22 · Puppeteer · plain ES2020 · `node --test` · GitHub Actions
 
+## Highlights
+
+- **Legacy modernization in production**: characterization tests pin behavior before any refactor.
+- **Reproducible demo** (`npm run pipeline:sample`): synthetic fixtures, zero scraping, runs in CI on every push.
+- **5 ADRs** documenting irreversible engineering decisions (history rewrite, generated-data quarantine, synthetic fixtures only).
+- **Cross-platform verifier** + GitHub Actions gate on `main`.
+- **AI-assisted workflow**: two scoped Copilot agents (`designer` plans, `implementer` executes with characterization-first discipline).
+
 ## What this project does
 
 A legacy Data Engineering + Sports Analytics pipeline I built to evaluate players across leagues with a consistent statistical lens.
