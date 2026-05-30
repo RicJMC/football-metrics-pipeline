@@ -38,6 +38,14 @@ npm run pipeline:sample -- --fixture sample-data/edge-cases/missing-fields/input
 npm run pipeline:sample -- --fixture sample-data/edge-cases/filtered-out/input/playerStats01_Unicos.sample.json
 ```
 
+### Try stage 01 against a mocked scrape tree
+
+```bash
+npm run pipeline:sample:stage1
+```
+
+This runs `scripts/playerStats01_unicos.js` against the mocked `data/` tree in `sample-data/etl-stage1/` (4 categories, 2 leagues, 6 synthetic players) and writes the resulting `playerStats01_Unicos.json` to `tmp/sample-output/`. The fixture is intentionally small and is meant to exercise stage 01 parsing only; for an end-to-end CSV demo use `npm run pipeline:sample`.
+
 ## 3. Run the tests
 
 ```bash
@@ -69,4 +77,4 @@ Respect FBref's terms of use and rate limits. Generated outputs under `data/`, `
 - [docs/ARCHITECTURE_CURRENT.md](ARCHITECTURE_CURRENT.md) — current architecture snapshot.
 - [docs/DATA_POLICY.md](DATA_POLICY.md) — what stays in Git, what doesn't.
 - [docs/MODERNIZATION_PLAN.md](MODERNIZATION_PLAN.md) — phased modernization plan.
-- [docs/handoffs/](handoffs/) — most recent handoff summaries.
+- [docs/adr/](adr/) — architecture decision records.

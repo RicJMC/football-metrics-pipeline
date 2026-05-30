@@ -48,6 +48,7 @@ For more, see [docs/QUICKSTART.md](docs/QUICKSTART.md).
 | `scripts/pipeline-sample.js` | Thin CLI that runs the ETL against the bundled sample data and writes a CSV to `tmp/sample-output/`. |
 | `scripts/verify.js` | Cross-platform repo verifier (paths, package metadata, secret-pattern scan, characterization tests). |
 | `sample-data/etl-phase2/` | Synthetic stage-2 input + approved outputs (canonical happy-path fixture). |
+| `sample-data/etl-stage1/` | Synthetic mocked `data/` tree (4 categories, 2 leagues, 6 players) + expected stage-1 output. |
 | `sample-data/edge-cases/` | Three fixtures for missing fields, multi-team transfers, and the `< 3 game` filter. |
 | `test/characterization/` | `node --test` snapshot tests that pin current ETL behavior before any refactor. |
 | `docs/` | Architecture, pipeline doc, data policy, modernization plan, publishing checklist, handoffs. |
@@ -59,7 +60,8 @@ For more, see [docs/QUICKSTART.md](docs/QUICKSTART.md).
 ```bash
 npm ci                          # install dependencies
 npm run pipeline:sample         # run ETL stages 02-05 on bundled sample data
-npm run test:characterization   # node --test snapshot suite (sample + 3 edge cases)
+npm run pipeline:sample:stage1  # run stage 01 only on the mocked data tree (etl-stage1)
+npm run test:characterization   # node --test snapshot suite (sample + 3 edge cases + stage 1)
 npm run verify                  # full repo verification (paths, metadata, secret scan, tests)
 ```
 
@@ -78,6 +80,7 @@ The canonical ETL orchestrator going forward is `scripts/index.js`. The root `in
 Raw scraping output, generated JSON, full CSVs and logs are **not committed**. Only synthetic sample data lives in the repository:
 
 - `sample-data/etl-phase2/` — happy path (3 synthetic players).
+- `sample-data/etl-stage1/` — mocked scrape output for stage 01 (6 synthetic players across 2 leagues).
 - `sample-data/edge-cases/` — three small variants for `missing-fields`, `multi-team`, `filtered-out`.
 
 Total tracked sample-data footprint: well under 100 KB.
@@ -95,7 +98,7 @@ If you want to run the full pipeline against real data, point the scrapers at FB
 - ⏳ Lint/format and modular refactor.
 - ⏳ Optional TypeScript migration.
 
-Modernization order is tracked in [docs/MODERNIZATION_PLAN.md](docs/MODERNIZATION_PLAN.md). Recent handoffs live in [docs/handoffs/](docs/handoffs/).
+Modernization order is tracked in [docs/MODERNIZATION_PLAN.md](docs/MODERNIZATION_PLAN.md). Engineering decisions are recorded as ADRs under [docs/adr/](docs/adr/).
 
 ## License
 

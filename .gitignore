@@ -9,9 +9,10 @@ node_modules/
 *.p12
 *.pfx
 
-# Generated datasets and outputs
-data/
-jsonfiles/
+# Generated datasets and outputs (anchored to repo root so
+# `sample-data/etl-stage1/data/` is not affected)
+/data/
+/jsonfiles/
 outputs/
 exports/
 *.parquet
@@ -56,6 +57,9 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.example.json
+
+# Internal-only notes (handoffs, working drafts) — not for public remote
+.github/internal/
 
 # Local template clone (do not vendor into this repo)
 copilot-ai-starter/
