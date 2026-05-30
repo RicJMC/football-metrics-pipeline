@@ -17,6 +17,8 @@ Template: [0000-template.md](0000-template.md) (lightweight [MADR](https://adr.g
 | [0004](0004-sample-data-scope.md)                    | Synthetic sample data only, no scraped data in Git           | Accepted |
 | [0005](0005-lint-format-toolchain.md)                | Adopt ESLint flat config + Prettier as lint/format toolchain | Accepted |
 | [0006](0006-agentic-pr-workflow.md)                  | Adopt an agentic PR workflow with a human merge gate         | Accepted |
+| [0007](0007-local-agent-pr-toolkit.md)               | Local agent toolkit for PR operations via `gh`               | Accepted |
+| [0008](0008-ci-side-ai-reviewer.md)                  | CI-side AI reviewer via GitHub Actions                       | Proposed |
 
 ## Adding a new ADR
 

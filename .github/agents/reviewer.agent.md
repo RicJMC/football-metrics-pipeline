@@ -65,15 +65,33 @@ You review pull requests against this repository. You never edit files, push com
 
 ## Workflow
 
-1. Read the PR title, description, and full diff.
-2. Read every ADR referenced in the diff or in the PR description.
-3. Check CI status on the head commit (must be green for approve).
-4. Read the head version of every file that was changed.
-5. Run the rubric below mentally; record findings.
-6. Post the review with:
+1. Begin every review by running `node scripts/internal/pr-context.js <pr>` (or invoking `fetchPrContext` programmatically from `scripts/internal/pr-context.js`). Never review based on a partial fetch — the helper consolidates conversation comments, inline review comments, reviews, and CI checks in one normalized payload (see [ADR-0007](../../docs/adr/0007-local-agent-pr-toolkit.md)).
+2. Read the PR title, description, and full diff.
+3. Read every ADR referenced in the diff or in the PR description.
+4. Check CI status on the head commit (must be green for approve).
+5. Read the head version of every file that was changed.
+6. Run the rubric below mentally; record findings.
+7. Post the review with:
    - Verdict: `APPROVE` or `REQUEST_CHANGES`.
    - Per-file comments where there are concrete issues.
    - A summary comment with reasoning, especially if `REQUEST_CHANGES`.
+
+### Allowed verbs
+
+- May use: `gh pr review <n> --approve`, `gh pr review <n> --request-changes`, `gh pr review <n> --comment` (always with `--body-file`).
+- Must NEVER use: `gh pr merge` (any flag), `gh pr close`. Merge is a human-only action (ADR-0006 and ADR-0007).
+
+### Review body format
+
+Every review body — whether `--approve`, `--request-changes`, or `--comment` — MUST begin with the following machine-readable header so the audit trail can filter agent reviews from manual human reviews:
+
+```
+<!-- ai-reviewer:v1 -->
+Verdict: APPROVE | REQUEST_CHANGES | COMMENT
+Head SHA: <full sha>
+```
+
+The header is followed by the rationale and the per-file comments. The marker is mandatory (ADR-0007).
 
 ## Review rubric
 
