@@ -39,7 +39,6 @@ tools:
     gitkraken/pull_request_get_detail,
     gitkraken/pull_request_get_comments,
     web/fetch,
-    agent/runSubagent,
     vscode/askQuestions,
     todo,
   ]

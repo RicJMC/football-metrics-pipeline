@@ -17,7 +17,6 @@ tools:
     web/fetch,
     web/githubRepo,
     web/githubTextSearch,
-    agent/runSubagent,
     vscode/askQuestions,
     todo,
   ]
