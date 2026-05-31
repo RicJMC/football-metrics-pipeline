@@ -11,6 +11,7 @@
 - [ ] No `.env`, `data/`, `jsonfiles/`, `csv/`, `errorLog*`, browser sessions, cookies, or tokens are staged.
 - [ ] If this PR touches `scrappe/*` or `scripts/playerStats*.js`: behavior is preserved and characterization tests still pin the output.
 - [ ] If this PR introduces an architectural decision: a new ADR is added under `docs/adr/` (status `Accepted` on merge).
+- [ ] If this PR accepts/enforces an ADR, or delivers a capability listed as pending in docs or plans: stale references are updated here (or an `adr-decision` / tracking issue is opened and linked).
 - [ ] If this PR introduces new tracked artifacts: `scripts/verify.js` (`requiredPaths` / `jsonFiles`) is updated.
 - [ ] Commit history is clean (single intent per commit; squash on merge).
 
