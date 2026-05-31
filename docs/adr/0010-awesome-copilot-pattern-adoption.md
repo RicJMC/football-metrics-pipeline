@@ -1,6 +1,6 @@
 # ADR-0010: Curated adoption of patterns from `github/awesome-copilot`
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-05-30
 - **Deciders:** Repository owner
 
