@@ -131,7 +131,7 @@ Notes:
 
 Sequenced as small, independent PRs.
 
-- [ ] **PR-A — Documentation alignment.** This ADR + ADR index update in [README](README.md). Docs only. Designer-owned.
+- [ ] **PR-A — Documentation alignment.** This ADR + README + agent instruction updates. Docs only. Designer-owned.
 - [ ] **PR-B — Issue templates (refines ADR-0011 PR-1).** Add `.github/ISSUE_TEMPLATE/*.yml` with classification labels only. Templates MUST NOT apply `agent-approved`. Implementer-owned.
 - [ ] **PR-C — Label inventory.** Create the labels `task`, `bug`, `docs`, `adr-request`, `plan-request`, `incident`, `agent-approved` in the repository (via `gh label create`). Document in [docs/CONTRIBUTING.md](../CONTRIBUTING.md). Implementer-owned.
 - [ ] **PR-D — Dispatch workflow (refines ADR-0011 PR-3).** Implement under `.github/workflows/agent-dispatch.yml` using the canonical defaults above. Implementer-owned.
@@ -145,6 +145,7 @@ PR-A is this ADR landing. PR-B, PR-C, PR-D can run in parallel after PR-A is mer
 - When in doubt between label-gated automation and `workflow_dispatch`, choose `workflow_dispatch`. The dispatch button is annoying, not unsafe.
 - If a workflow needs a secret beyond `GITHUB_TOKEN`, put the job behind a GitHub Environment with required reviewers — not directly in repository secrets.
 - The agent reading untrusted text MUST output an artefact (plan/ADR/comment), never execute commands implied by that text.
+- When updating agent-facing docs, keep the trust boundary explicit and never describe untrusted intake as approval.
 
 ## References
 
