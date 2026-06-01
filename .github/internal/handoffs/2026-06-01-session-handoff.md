@@ -1,5 +1,11 @@
 # Handoff: 2026-06-01
 
+> **STATUS: snapshot - DO NOT MERGE AS-IS**
+> This branch (`wip/handoff-2026-06-01`) is a cross-machine transport snapshot.
+> It bundles multiple unrelated themes in a single commit and must be split
+> into focused PRs before any merge into `main`.
+> See `Next steps` below for the split plan.
+
 ## Context
 - Source branch synced and pushed: docs/lessons-learned-retroactive-rule
 - Cross-machine snapshot branch: wip/handoff-2026-06-01
@@ -53,9 +59,28 @@ Untracked files/folders:
 - No overlap found between files changed in remote-only commits and local modified files when branch sync was prepared.
 
 ## Next steps
-- Stage all intended changes.
-- Commit as a WIP snapshot.
-- Push wip/handoff-2026-06-01 and pull this branch from the other machine.
+- Snapshot has already been committed and pushed:
+  - `46a0c13` wip(handoff): snapshot 2026-06-01 for cross-machine sync
+  - `3cbdd69` docs(handoff): add 2026-06-01 cross-machine handoff note
+- On the receiving machine:
+  1. `git fetch origin`
+  2. `git switch -c wip/handoff-2026-06-01 origin/wip/handoff-2026-06-01`
+  3. Confirm both commits above are present: `git log --oneline main..HEAD`
+  4. Inspect scope: `git diff --name-status main...wip/handoff-2026-06-01`
+  5. Verify no forbidden paths leaked:
+	  `git diff --name-only main...HEAD | grep -E '^(data/|jsonfiles/|csv/|scrappe/tmp/|\.env)'`
+	  (must return empty)
+  6. Split the snapshot into focused PR branches (cherry-pick per file, from `main`):
+	  - PR-B: docs governance + lessons learned + backlog + PRDs + top-level docs
+	  - PR-C: agents + copilot-instructions tightening
+	  - PR-D: skills upstream TDD + safety updates
+	  - ADR-0012 threat model is already merged via `docs/adr-0012-threat-model`; no PR needed
+  7. Decide the fate of any local untracked plan files (for example,
+	  `docs/plans/awesome-copilot-adoption.md`) - either include in a dedicated
+	  `docs(plans)` PR or drop
+  8. After all derived PRs are merged, delete the WIP branch:
+	  - `git push origin --delete wip/handoff-2026-06-01`
+	  - `git branch -D wip/handoff-2026-06-01`
 
 ## Risks / warnings
 - WIP commit intentionally bundles multiple themes; split before opening final PR(s).
