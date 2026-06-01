@@ -19,7 +19,6 @@ tools:
     web/githubTextSearch,
     vscode/askQuestions,
     vscode/toolSearch,
-    agent/runSubagent,
     gitkraken/git_blame,
     gitkraken/git_log_or_diff,
     gitkraken/git_status,
