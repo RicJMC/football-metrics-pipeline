@@ -1,7 +1,13 @@
 # Plan 0001 — PR sequence for `awesome-copilot` adoption
 
 > Tactical plan for the implementer. Strategy lives in [ADR-0010](../adr/0010-awesome-copilot-pattern-adoption.md).
-> Status: ready for execution. Approval required before each destructive git step.
+> **Status: Completed — 2026-05-30**
+>
+> | Plan PR | GitHub PR | Merge SHA |
+> |---------|-----------|-----------|
+> | PR-0 (ai-context baseline) | [#5](https://github.com/RicJMC/football-metrics-pipeline/pull/5) | `f814f10` |
+> | PR-A (ADR-0010 + docs/plans scaffold) | [#6](https://github.com/RicJMC/football-metrics-pipeline/pull/6) | `f4ec2d8` |
+> | PR-B (agent least-privilege tools) | [#7](https://github.com/RicJMC/football-metrics-pipeline/pull/7) | `fb282af` |
 
 ## Intent
 

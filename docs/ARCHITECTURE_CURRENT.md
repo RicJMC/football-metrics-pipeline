@@ -23,7 +23,7 @@
 
 - Outputs mixed with code in same repository.
 - Minimal repository guardrails before this bootstrap.
-- No characterization test harness yet.
+- Characterization test harness delivered in Phase 2: five green tests under `test/characterization/` (stage1Pipeline, phase2Pipeline, edgeCases, prContext, and their harness helpers).
 - Legacy script naming and duplicated orchestration paths.
 - Documentation previously referenced scraper/ETL orchestrators that are not present in the current tracked snapshot.
 

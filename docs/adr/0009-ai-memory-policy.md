@@ -1,6 +1,6 @@
 # ADR-0009: Curated AI memory and approval-gated updates
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-05-30
 - **Deciders:** Repository owner
 
