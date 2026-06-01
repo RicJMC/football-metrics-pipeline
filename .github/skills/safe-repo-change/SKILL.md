@@ -1,3 +1,8 @@
+---
+name: safe-repo-change
+description: Apply small, reversible repository-safe changes with explicit boundaries. Use before making edits to ensure scope, safety checks, and rollback path are established.
+---
+
 # Skill: safe-repo-change
 
 ## Purpose

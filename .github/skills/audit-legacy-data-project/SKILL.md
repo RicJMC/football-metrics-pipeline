@@ -1,3 +1,8 @@
+---
+name: audit-legacy-data-project
+description: Perform a read-only audit of repository safety and modernization readiness. Use when reviewing a legacy data project for risks, generated artifacts, or phase readiness.
+---
+
 # Skill: audit-legacy-data-project
 
 ## Purpose
