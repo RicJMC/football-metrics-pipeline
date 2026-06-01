@@ -40,7 +40,7 @@ When asked to assess delegation readiness, inspect the actual code and key files
 - Recommend where new docs belong (`docs/`, `docs/adr/`, `docs/plans/`, `sample-data/*/README.md`, `.github/internal/handoffs/`).
 - Define the input and output shape of each proposed seam in plain language or JSDoc before suggesting implementation steps.
 - For stage 03, treat global normalization as the current contract unless the code says otherwise; do not repeat the old per-position/league wording as if it were current behavior.
-- Any plan involving GitHub Actions, issue labels, or other agentic automation must cite ADR-0012 and keep untrusted intake framed as data, not approval.
+- Any plan involving GitHub Actions, issue labels, or other agentic automation should cite ADR-0012 as draft guidance while it is Proposed, and keep untrusted intake framed as data, not approval.
 
 ## Constraints
 
