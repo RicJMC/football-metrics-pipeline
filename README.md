@@ -12,7 +12,7 @@
 - **Reproducible demo** (`npm run pipeline:sample`): synthetic fixtures, zero scraping, runs in CI on every push.
 - **5 ADRs** documenting irreversible engineering decisions (history rewrite, generated-data quarantine, synthetic fixtures only).
 - **Cross-platform verifier** + GitHub Actions gate on `main`.
-- **AI-assisted workflow**: two scoped Copilot agents (`designer` plans, `implementer` executes with characterization-first discipline).
+- **AI-assisted workflow**: two scoped Copilot agents (`designer` plans, `implementer` executes with characterization-first discipline) and an explicit trust boundary for agentic automation (ADR-0012).
 
 ## What this project does
 
@@ -27,7 +27,7 @@ A legacy Data Engineering + Sports Analytics pipeline I built to evaluate player
 ```
 
 - **Scrapers** (`scrappe/`): one Puppeteer script per competition (UCL, UEL, Premier League/Big5, Serie A, Eredivisie, Liga MX, MLS, etc.).
-- **ETL** (`scripts/`): 5-stage chain that combines raw tables, filters players with < 3 game-equivalents, computes Z-scores per position/league, derives metric bundles and emits a CSV.
+- **ETL** (`scripts/`): 5-stage chain that combines raw tables, filters players with < 3 game-equivalents, computes global Z-scores across all player-season-team records, derives metric bundles and emits a CSV.
 - **Output**: a CSV with normalized player metrics, comparable across leagues on the same scale.
 
 The repository is under **incremental modernization** (legacy code preserved, characterization tests added first, refactor later). See [docs/MODERNIZATION_PLAN.md](docs/MODERNIZATION_PLAN.md).
