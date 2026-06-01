@@ -1,3 +1,8 @@
+---
+name: characterize-etl-behavior
+description: Capture current ETL behavior with snapshot tests before refactoring. Use when adding characterization tests to legacy scripts/playerStats*.js logic.
+---
+
 # Skill: characterize-etl-behavior
 
 ## Purpose

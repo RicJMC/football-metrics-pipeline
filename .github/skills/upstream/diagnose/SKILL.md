@@ -1,6 +1,6 @@
 ---
 name: diagnose
-description: Run a disciplined diagnosis loop for bugs and regressions: reproduce, isolate, instrument, fix, and verify. Use when behavior is incorrect or unclear.
+description: "Run a disciplined diagnosis loop for bugs and regressions: reproduce, isolate, instrument, fix, and verify. Use when behavior is incorrect or unclear."
 ---
 
 # diagnose
