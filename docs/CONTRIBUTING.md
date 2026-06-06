@@ -42,6 +42,16 @@ Two execution agents and one review agent live under [.github/agents/](.github/a
 
 Invoke them from VS Code Chat with `@designer`, `@implementer`, `@reviewer`.
 
+## Project skills (recommended)
+
+Detailed procedures are kept in skills so agent files stay short:
+
+- `/etl-change-safe` - characterization-first ETL/scraper changes
+- `/pr-review-flow` - canonical local PR operations (`pr-context.js` + review markers)
+- `/adr-decision-draft` - MADR-lite ADR drafting/updating
+- `/fixture-synthetic-data` - synthetic fixture policy and workflow
+- `/workflow-threat-model` - workflow/automation security checklist
+
 ## When to request which AI review
 
 | Situation | Recommended reviewer |
@@ -84,7 +94,7 @@ The following paths require extra caution from any agent or human. They should n
 - `*log*`, `errorLog*.txt`
 - Anything under `node_modules/`
 
-See [.github/instructions/safe-change.instructions.md](.github/instructions/safe-change.instructions.md).
+See [.github/instructions/safe-change.instructions.md](.github/instructions/safe-change.instructions.md) and [.github/copilot-instructions.md](.github/copilot-instructions.md).
 
 ## Local validation
 

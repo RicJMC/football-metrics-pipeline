@@ -1,22 +1,9 @@
 ---
-applyTo: "**"
+applyTo: "scripts/**/*.js"
 ---
 
-# Legacy Data Project Guidance
+This is legacy ETL code under incremental modernization.
 
-## Context
-
-This project contains legacy JavaScript scrapers and ETL scripts that are functional but not yet standardized.
-
-## Do
-
-- Preserve behavior when modernizing.
-- Document execution flow before refactoring.
-- Add tests around existing behavior (characterization-first).
-- Keep generated data out of source control.
-
-## Do Not
-
-- Perform broad rewrites in a single change.
-- Introduce unrelated architecture changes.
-- Couple refactor, migration, and behavior changes in one step.
+- Prefer smallest behavioral-preserving changes.
+- Add/adjust characterization tests before behavior-affecting edits.
+- Keep fixture data synthetic-only; never add scraped FBref data to the repository.
