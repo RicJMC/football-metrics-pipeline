@@ -1,4 +1,4 @@
-# Repository Inventory
+﻿# Repository Inventory
 
 This is a Phase 1 inventory snapshot. It documents the current repository boundaries without changing scraper or ETL behavior.
 
@@ -9,7 +9,7 @@ This is a Phase 1 inventory snapshot. It documents the current repository bounda
 - `index.js`: root ETL launcher that runs the player statistics stages from the repository root.
 - `package.json`: npm metadata and current command aliases.
 - `test/characterization/`: harness and characterization tests for the tracked ETL sample path.
-- `sample-data/etl-phase2/`: synthetic fixture input and approved expected outputs for ETL stages 2–5.
+- `sample-data/etl-phase2/`: synthetic fixture input and approved expected outputs for ETL stages 2â€“5.
 
 ## Documentation and Guardrails
 
@@ -17,8 +17,8 @@ This is a Phase 1 inventory snapshot. It documents the current repository bounda
 - `docs/`: pipeline, data policy, publishing checklist, security notes, and modernization plan.
 - `.github/copilot-instructions.md`: repository-specific Copilot operating rules.
 - `.github/instructions/`: reusable instruction files for safe changes and legacy data work.
-- `.github/prompts/`: phase-oriented prompts for audits, quarantine, documentation, and issue creation.
-- `.github/skills/`: small local skills for safe repo changes, legacy auditing, and ETL characterization.
+- `.github/prompts/`: retired from active workflow in favor of focused skills (legacy prompts removed).
+- `.github/skills/`: focused project skills (`etl-change-safe`, `pr-review-flow`, `adr-decision-draft`, `fixture-synthetic-data`, `workflow-threat-model`).
 - `.github/workflows/verify.yml`: minimal CI that runs repository verification without live scraping.
 
 ## Generated / Local-Only Areas
@@ -56,3 +56,4 @@ Tracked exceptions kept intentionally in Git:
 - Lint/format tooling is still not established.
 - CI currently validates the synthetic sample path only.
 - Historical `.env` and old secret-like patterns must be reviewed before public release.
+
